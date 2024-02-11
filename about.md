@@ -1,8 +1,11 @@
 ---
-permalink: /about/
+permalink: /
 title: "About"
 title: "Menachem (Meni) Sadigurschi"
 author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
 ---
 
 Data scientist @ [Intent IQ](https://www.intentiq.com/).  
