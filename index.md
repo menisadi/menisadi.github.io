@@ -1,6 +1,7 @@
 ---
 permalink: /
 title: "About"
+layout: single
 title: "Menachem (Meni) Sadigurschi"
 author_profile: true
 redirect_from: 
