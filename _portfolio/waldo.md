@@ -2,8 +2,9 @@
 layout: splash
 title: "Where's Waldo - RP Edition"
 excerpt: "Rising awerness for blindess and vision disabilities"
-header: "/assets/images/waldo.jpeg"
-teaser: "assets/images/waldo.jpeg"
+header: 
+  image: "/assets/images/waldo.jpeg"
+  teaser: "assets/images/waldo.jpeg"
 collection: portfolio
 ---
 
