@@ -1,8 +1,9 @@
 ---
+layout: splash
 title: 'Ping Tracker'
 excerpt: "Visualizing Network Connectivity"
-header: /assets/images/ping.jpeg
-teaser: assets/images/ping.jpeg
+header: "/assets/images/ping.jpeg"
+teaser: "assets/images/ping.jpeg"
 collection: portfolio
 ---
 

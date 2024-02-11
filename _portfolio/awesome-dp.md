@@ -1,8 +1,9 @@
 ---
+layout: splash
 title: 'awesome-differential-privacy'
 excerpt: "A curated list for exploring differential privacy"
-header: /assets/images/awesome.png
-teaser: assets/images/awesome.png
+header: "/assets/images/awesome.png"
+teaser: "assets/images/awesome.png"
 collection: portfolio
 ---
 

@@ -10,6 +10,6 @@ main:
   - title: "Service"
     url: /service/
   - title: "About"
-    url: /about/
+    url: /
   - title: "Contact"
     url: /contact/
