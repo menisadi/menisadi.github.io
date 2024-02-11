@@ -1,3 +1,4 @@
+---
 title: Side-Projects
 layout: collection
 permalink: /portfolio/
