@@ -26,4 +26,3 @@ author_profile: true
 - Spring 2016 - Discrete Mathematics
 
 
-{% include base_path %}
