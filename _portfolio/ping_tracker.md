@@ -2,6 +2,7 @@
 title: 'Ping Tracker'
 excerpt: "Visualizing Network Connectivity"
 header: assests/images/ping.jpeg
+teaser: assests/images/ping.jpeg
 collection: portfolio
 ---
 

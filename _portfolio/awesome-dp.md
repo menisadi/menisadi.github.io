@@ -2,6 +2,7 @@
 title: 'awesome-differential-privacy'
 excerpt: "A curated list for exploring differential privacy"
 header: /assests/images/awesome.png
+teaser: /assests/images/awesome.png
 collection: portfolio
 ---
 
