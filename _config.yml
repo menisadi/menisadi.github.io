@@ -13,15 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
+title: Meni Sadigurschi
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
+  My personal site
+twitter_username: menisadi
+github_username: menisadi
+minimal_mistakes_skin: neon
 search: true
 
 # Build settings
@@ -53,39 +51,35 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  name   : "Meni Sadigurschi"
+  avatar : "/assets/images/profile.jpeg"
+  bio    : "Data scientist and math enthusiast"
   links:
-    - label: "Website"
+    - label: "Personal Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
+      url: "https://menisadi.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://twitter.com/menisadi"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/menisadi"
 
 footer:
   links:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
+      url: "https://twitter.com/menisadi"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/"
+      url: "https://github.com/menisadi"
+
+lunr:
+  search_within_pages: true
 
 defaults:
   # _posts
@@ -99,6 +93,8 @@ defaults:
       comments: true
       share: true
       related: true
+      show_date: true
+      read_time: true
   # _pages
   - scope:
       path: "_pages"
@@ -106,6 +102,10 @@ defaults:
     values:
       layout: single
       author_profile: true
+  # _portfolio
+  - scope:
+      path: "_portfolio"
+      type: collection
 
 category_archive:
   type: liquid

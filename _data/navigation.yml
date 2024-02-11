@@ -1,8 +1,16 @@
 main:
   - title: "Posts"
     url: /posts/
+  - title: "Projects"
+    url: /portfolio/
+  - title: "Publications"
+    url: /publications/ 
   - title: "Categories"
     url: /categories/
+  - title: "Teaching"
+    url: /teaching/
+  - title: "Service"
+    url: /service/
   - title: "Tags"
     url: /tags/
   - title: "About"
