@@ -1,7 +1,7 @@
 ---
 title: 'Blind Chess Telegram Bot'
 excerpt: "Playing chess - the text version"
-header: assets/images/chess_bot_1.jpeg
+header: /assets/images/chess_bot_1.jpeg
 teaser: assets/images/chess_bot_1.jpeg
 collection: portfolio
 ---

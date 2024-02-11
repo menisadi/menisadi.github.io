@@ -1,8 +1,8 @@
 ---
 title: 'Ping Tracker'
 excerpt: "Visualizing Network Connectivity"
-header: assests/images/ping.jpeg
-teaser: assests/images/ping.jpeg
+header: /assets/images/ping.jpeg
+teaser: assets/images/ping.jpeg
 collection: portfolio
 ---
 
