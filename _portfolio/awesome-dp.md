@@ -4,7 +4,7 @@ title: 'awesome-differential-privacy'
 excerpt: "A curated list for exploring differential privacy"
 header: 
   image: /assets/images/awesome.png
-  teaser: assets/images/awesome.png
+  teaser: assets/images/profile.png
 collection: portfolio
 ---
 
