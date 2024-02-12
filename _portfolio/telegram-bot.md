@@ -3,7 +3,8 @@ layout: splash
 title: 'Blind Chess Telegram Bot'
 excerpt: "Playing chess - the text version"
 header: 
-  image: "/assets/images/chess_bot_1.jpeg"
+  overlay_image: "/assets/images/chess_bot_1.jpeg"
+  overlay_filter: 0.5
   teaser: "assets/images/chess_bot_1.jpeg"
 collection: portfolio
 ---

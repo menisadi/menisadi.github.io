@@ -3,7 +3,8 @@ layout: splash
 title: 'Ping Tracker'
 excerpt: "Visualizing Network Connectivity"
 header: 
-  image: "/assets/images/ping.jpeg"
+  overlay_image: "/assets/images/ping.jpeg"
+  overlay_filter: 0.5
   teaser: "assets/images/ping.jpeg"
 collection: portfolio
 ---

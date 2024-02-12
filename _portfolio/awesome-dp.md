@@ -3,8 +3,9 @@ layout: splash
 title: 'awesome-differential-privacy'
 excerpt: "A curated list for exploring differential privacy"
 header: 
-  image: /assets/images/awesome.png
-  teaser: assets/images/profile.png
+  overlay_image: /assets/images/dp.png
+  overlay_filter: 0.5
+  teaser: assets/images/dp.png
 collection: portfolio
 ---
 
