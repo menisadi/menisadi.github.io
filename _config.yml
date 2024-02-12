@@ -56,7 +56,7 @@ author:
   location: "Yeruham, IL"
   links:
     - label: "Google Scholar"
-      icon: "fab fa-fw fa-google-scholar"
+      icon: "fas fa-fw fa-graduation-cap"
       url: "https://scholar.google.com/citations?user=dmGbLNYAAAAJ&hl"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
