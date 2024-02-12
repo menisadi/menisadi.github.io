@@ -5,7 +5,7 @@ excerpt: "Rising awerness for blindess and vision disabilities"
 header: 
   overlay_image: "/assets/images/waldo.jpeg"
   overlay_filter: 0.5
-  teaser: "assets/images/waldo.jpeg"
+  teaser: "assets/images/waldo2.jpeg"
   actions:
     - label: "Play"
       url: "https://menisadi.github.io/RPWaldo/"
