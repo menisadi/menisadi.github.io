@@ -8,7 +8,7 @@ header:
   teaser: "assets/images/ping2.png"
   actions:
     label: "Go"
-    url: "/files/pings_online.html"
+    url: "https://menisadi.github.io/files/pings_online.html"
 collection: portfolio
 ---
 

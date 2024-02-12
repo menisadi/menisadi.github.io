@@ -5,7 +5,7 @@ excerpt: "Playing chess - the text version"
 header: 
   overlay_image: "/assets/images/bot_cover.png"
   overlay_filter: 0.5
-  teaser: "assets/images/chess_bot_1.jpeg"
+  teaser: "assets/images/bot3.jpg"
 collection: portfolio
 ---
 
