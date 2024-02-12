@@ -7,8 +7,8 @@ header:
   overlay_filter: 0.5
   teaser: "assets/images/ping2.png"
   actions:
-    label: "Go"
-    url: "https://menisadi.github.io/files/pings_online.html"
+    - label: "Go"
+      url: "https://menisadi.github.io/files/pings_online.html"
 collection: portfolio
 ---
 
