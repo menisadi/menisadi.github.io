@@ -3,9 +3,12 @@ layout: splash
 title: 'awesome-differential-privacy'
 excerpt: "A curated list for exploring differential privacy"
 header: 
-  overlay_image: /assets/images/dp.png
+  overlay_image: /assets/images/dp_cover.png
   overlay_filter: 0.5
   teaser: assets/images/dp.png
+  action:
+    - label: "The List"
+      url: "https://github.com/menisadi/awesome-differential-privacy"
 collection: portfolio
 ---
 

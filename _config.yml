@@ -73,7 +73,7 @@ author:
 footer:
   links:
     - label: "Google Scholar"
-      icon: "fa-brands fa-google-scholar"
+      icon: "fab fa-fw fa-google-scholar"
       url: "https://scholar.google.com/citations?user=dmGbLNYAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -82,7 +82,7 @@ footer:
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/menisadi"
     - labe: "Mastodon"
-      icon: "fa-brands fa-mastodon"
+      icon: "fab fa-fw fa-mastodon"
       url: "https://sigmoid.social/@menisadi"
 
 lunr:

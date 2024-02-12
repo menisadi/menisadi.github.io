@@ -6,6 +6,9 @@ header:
   overlay_image: "/assets/images/waldo.jpeg"
   overlay_filter: 0.5
   teaser: "assets/images/waldo.jpeg"
+  action:
+    - label: "Play"
+      url: "https://menisadi.github.io/RPWaldo/"
 collection: portfolio
 ---
 
