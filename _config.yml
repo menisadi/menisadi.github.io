@@ -56,7 +56,7 @@ author:
   location: "Yeruham, IL"
   links:
     - label: "Google Scholar"
-      icon: "fa-brands fa-fw fa-google-scholar"
+      icon: "fab fa-fw fa-google-scholar"
       url: "https://scholar.google.com/citations?user=dmGbLNYAAAAJ&hl"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -64,8 +64,8 @@ author:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/menisadi"
-    - labe: "Mastodon"
-      icon: "fa-brands fa-fw fa-mastodon"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
       url: "https://sigmoid.social/@menisadi"
 
 lunr:
