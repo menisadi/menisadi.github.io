@@ -58,7 +58,7 @@ author:
       icon: "fas fa-fw fa-link"
       url: "https://menisadi.github.io"
     - label: "Google Scholar"
-      icon: "fa-brands fa-google-scholar"
+      icon: "fab fa-fw fa-google-scholar"
       url: "https://scholar.google.com/citations?user=dmGbLNYAAAAJ&hl=en"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -66,8 +66,8 @@ author:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/menisadi"
-    - labe: "Mastodon"
-      icon: "fa-brands fa-mastodon"
+    - label: "Mastodon"
+      icon: "fab fa-fw fa-mastodon"
       url: "https://sigmoid.social/@menisadi"
 
 footer:
