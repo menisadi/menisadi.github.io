@@ -24,6 +24,6 @@ I created a simple script that periodically sends out ping requests to a server.
 
 Now, numbers are all well and good, but turning them into something you can grasp is another ballgame. Here's where Pandas, Plotly, and Dash come into play. Pandas helped me make sense of the raw data, while Plotly and Dash joined forces to create interactive, easy-on-the-eyes visualizations.
 
-![static-dash](assets/images/ping.png)
+![static-dash](/assets/images/ping.png)
 
-I decided to extend and host the dashboard on PythonAnywhere so I could access it anytime. You can check it out [here](/files/pings_online.html). It's far from being a masterpiece, but it does the job 😊. 
+You can check out the interactive and updated version [here](/files/pings_online.html). It's far from being a masterpiece, but it does the job 😊. 
