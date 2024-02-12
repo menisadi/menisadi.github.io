@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/images/dp_cover.png
   overlay_filter: 0.5
   teaser: assets/images/dp2.png
-  action:
+  actions:
     - label: "The List"
       url: "https://github.com/menisadi/awesome-differential-privacy"
 collection: portfolio
