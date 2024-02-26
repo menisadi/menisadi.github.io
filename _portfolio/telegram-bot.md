@@ -33,7 +33,8 @@ In addition to the current features, I plan  to add some more features in the fu
 
 ## How to use the bot?
 
-Just search for "[@textchessbot](https://t.me/textchessbot)" on Telegram and start a conversation with the bot. It will guide you through the process of starting a new game.
+--Just search for "[@textchessbot](https://t.me/textchessbot)" on Telegram and start a conversation with the bot. It will guide you through the process of starting a new game.--
+At the moment the hosting service is causing some problem. In order to use the bot you would have to clone the repository and run it locally.
 
 ## Source code
 
