@@ -8,7 +8,7 @@ header:
   teaser: "assets/images/ping2.png"
   actions:
     - label: "Go"
-      url: "https://menisadi.github.io/files/pings_online.html"
+      url: "https://menisadi.pythonanywhere.com/"
 collection: portfolio
 ---
 
@@ -26,4 +26,4 @@ Now, numbers are all well and good, but turning them into something you can gras
 
 ![static-dash](/assets/images/ping.png)
 
-You can check out the interactive and updated version [here](/files/pings_online.html). It's far from being a masterpiece, but it does the job 😊. 
+You can check out the interactive and updated version [here](/files/pings_online.html). It's far from being a masterpiece, but it does the job 😊. Also, I deployed it as a flask app (using Plotly's dash module) which is a bit more styled and friendly and can be found [here](https://menisadi.pythonanywhere.com/).
