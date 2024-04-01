@@ -74,7 +74,7 @@ lunr:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "G-8T27JV9EQ7V2"
+    tracking_id: "G-8T27JV9EQ7"
 
 defaults:
   # _posts
