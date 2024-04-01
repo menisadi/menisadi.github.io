@@ -71,6 +71,11 @@ author:
 lunr:
   search_within_pages: true
 
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-PKC90JY1V2"
+
 defaults:
   # _posts
   - scope:
