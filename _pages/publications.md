@@ -7,6 +7,9 @@ author_profile: true
 
 ### Conferences
 
+- **Agnostic Sample Compression Schemes for Regression**   
+  [Idan Attias](https://www.idanattias.com/), [Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi   
+  [Arxiv](https://arxiv.org/abs/1810.01864) | [ICML spotlight](https://proceedings.mlr.press/v235/attias24b.html)  
 - **Relaxed Models for Adversarial Streaming: The Advice Model and the Bounded Interruptions Model**   
   Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/), [Moshe Shechner](https://www.shechner.com/)   
   [Arxiv](https://arxiv.org/abs/2301.09203) | *[ESA2023](https://algo-conference.org/2023/esa/)*   
@@ -22,9 +25,6 @@ author_profile: true
 
 ### Preprints
 
-- **Agnostic Sample Compression Schemes for Regression**   
-  [Idan Attias](https://www.idanattias.com/), [Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi   
-  [Arxiv](https://arxiv.org/abs/1810.01864)   
 - **Differentially-Private Bayes Consistency**  
   [Olivier Bousquet](https://research.google/people/OlivierBousquet/), [Haim Kaplan](https://www.cs.tau.ac.il/~haimk/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), [Yishay Mansour](https://www.tau.ac.il/~mansour/), [Shay Moran](https://www.cs.technion.ac.il/~shaymrn/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)    
   [Arxiv](https://arxiv.org/abs/2212.04216)  
