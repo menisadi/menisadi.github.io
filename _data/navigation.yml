@@ -1,15 +1,15 @@
 main:
-  - title: "Publications"
-    url: /publications/ 
-  - title: "Projects"
-    url: /portfolio/
-  - title: "Posts"
-    url: /posts/
-  - title: "Teaching"
-    url: /teaching/
-  - title: "Service"
-    url: /service/
-  - title: "About"
-    url: /about/
-  - title: "Contact"
-    url: /contact/
+    - title: "Publications"
+      url: /publications/
+    - title: "Projects"
+      url: /portfolio/
+    - title: "Posts"
+      url: /posts/
+    - title: "Teaching"
+      url: /teaching/
+    - title: "Service"
+      url: /service/
+    - title: "About"
+      url: /about/
+    - title: "Contact"
+      url: /contact/
