@@ -1,33 +1,31 @@
 ---
 layout: splash
-title: "Where's Waldo - RP Edition"
+title: "Where's Waldo - RP ERetinitis Pigmentosa dition"
 excerpt: "Rising awerness for blindess and vision disabilities"
-header: 
-  overlay_image: "/assets/images/waldo3.jpg"
-  overlay_filter: 0.5
-  teaser: "assets/images/waldo5.jpg"
-  actions:
-    - label: "Play"
-      url: "https://menisadi.github.io/RPWaldo/"
+header:
+    overlay_image: "/assets/images/waldo3.jpg"
+    overlay_filter: 0.5
+    teaser: "assets/images/waldo5.jpg"
+    actions:
+        - label: "Play"
+          url: "https://menisadi.github.io/RPWaldo/"
 collection: portfolio
 ---
 
+**Where's Waldo? RP Edition!**
 
-🔍 **Where's Waldo? RP Edition!**
+**Why I built it**
 
+I live with Retinitis Pigmentosa (RP), a genetic eye condition that slowly erodes peripheral vision. Most days I can explain “tunnel vision” in words, but it’s hard for friends to feel what it’s like. So I recreated the childhood classic Where’s Waldo? then added a Tunnel-Vision Mode that black-outs everything except a small circle around the cursor.
 
-I decided to create a simple variation of the classic "Where's Waldo" game. One of the main inspirations for this game was to highlight the stark contrast in difficulty between those with Retinitis Pigmentosa (RP) and those without. RP is an inherited eye disorder affecting the retina, leading to a gradual loss of vision over time. People with RP often experience tunnel vision, making it challenging to perceive their surroundings fully.
+The result is a two-minute toy that highlights how a task that feels trivial with normal vision becomes genuinely tricky once your field of view shrinks.
 
-The initial idea was to illustrate this difficulty by the illustrating the gap between people with limited field of vision (due to RP) and those who are not. While for most people finding Waldo on an empty background will look like a ridiculously easy task, for people with limited field of vision this might not be so easy.
+**How to play**
 
-After this initial version of "Where's Waldo? RP Edition," I decided to incorporated a special "tunnel vision mode" to simulate the limited field of vision experienced by those with RP. This might serve as another illustration of how does it feel, at least at this 'toy' scenario, to have limited field of vision.
+1. Open the game (desktop recommended) -> [here](https://menisadi.github.io/RPWaldo/)
+2. Click Start. Waldo pops up in a random spot, the timer starts ticking.
+3. Each time you click him, you score a point and he “teleports” elsewhere.
+4. Now, flip the Tunnel-Vision switch to see how the hunt feels with restricted vision.
+5. Hit Stop whenever you’ve had enough; you’ll get your final score, total time, and average seconds per click.
 
-🎮 **How to Play:**
-- Click [here](https://menisadi.github.io/RPWaldo/) to start the game. Note that it's best experienced on desktop but can also be played on tablets.
-- Your objective is simple: find Waldo!
-- Click on Waldo when you spot him to earn points.
-- The game ends when you decide to stop. Your final score and time will be displayed.
-
-This project was built using simple HTML, JavaScript, and CSS. You can check out the source code [here](https://github.com/menisadi/RPWaldo).
-
-I hope you enjoy playing "Where's Waldo? RP Edition" and gain a new perspective on the challenges faced by individuals with RP. Let me know what you think! 🌟
+Source available [here](https://github.com/menisadi/RPWaldo).
