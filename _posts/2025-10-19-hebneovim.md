@@ -35,7 +35,7 @@ Note that Neovim automatically modify those when you change the keymap, but I gu
 Also, there is a key-binding which can toggle this when it is set automatically, and I don't want to allow it.
 
 I started with simply applying those settings.
-It worked, but I didn't love the experience and lots of people online say the same: Vim/Neovim isn't great for **bidi** (as in bi-directional writing) in the first place, and that is actually by design.
+It worked, but I didn't love the experience and lots of people online say the same: Vim/Neovim isn't great for **bidi** (as in bi-directional writing) in the first place, and that is actually by design as they "inherent" this from the terminal itself.
 Instead threads online suggested that Emacs, as it relies on its own rendering system, which supports bidi, is the preferred option.
 Ok, I guess I could give Emacs a try, I'm not a hater or something.
 
@@ -44,23 +44,22 @@ Ok, I guess I could give Emacs a try, I'm not a hater or something.
 ## Step 2 — A brief Emacs tangent (and why I returned)
 
 I decided to go with Doom Emacs, which seems like the best way to enter the Emacs world.
-The installation process was not too bad and I could get a bsic, usable Emacs configuration to work in half an hour or so.
-Emacs rendered Hebrew nicely, the people online were right I guess.
+The installation process was not too bad and I could get a basic, usable Emacs configuration to work in half an hour or so.
+Emacs rendered Hebrew nicely, the people online were right, I guess.
 Next thing was to tweak it a bit to make my writing flow more smooth.
-I started reading a bit about elisp, but then I suddenly stooped.
-I realized that I'm entering complete new and rich teriroty and to be honest, I didn't want to invest so much time to learn a whole new paradigm and a new language and overll get in a new ecosystem/config right now.
-Also, my little Emacs experiment made me realize that in fact I rarly use Hebrew and English mixed, so I don't really need bidi support, I only needed **one direction at a time**, So I went back to Neovim to give it a deeper try.
+I started reading about elisp, but then I suddenly stooped.
+I realized that I'm entering complete new and rich territory and to be honest, I didn't want to invest so much time to learn a whole new paradigm and a new language and overall get in a new ecosystem/config right now.
+Also, my little Emacs experiment made me realize that in fact I rarely use Hebrew and English mixed, so I don't really need bidi support, I only needed **one direction at a time**! So I went back to Neovim to give it a deeper try.
 
 ---
 
 ## Step 3 — Make a tiny RTL toggle (the minimally useful bit)
 
-I took off from the place I left and found out taht wrapping those basic options behind a tiny toggle helped a lot.
+I took off from the place I left and found out that wrapping those basic options behind a tiny toggle helped a lot.
 It wasn't yet good enough in my opinion but it was a usable start.
 At this point all I added was just the simplest working toggle and a hotkey:
 
 ```lua
--- Minimal Hebrew toggle (early version)
 local function HebrewToggle()
   if not vim.b.hebrew_mode_enabled then
     vim.opt_local.keymap   = "hebrew"
@@ -84,7 +83,7 @@ vim.keymap.set("n", "<leader>hb", function() vim.cmd.HebrewToggle() end,
   { silent = true, desc = "Toggle Hebrew mode (RTL/LTR)" })
 ```
 
-That alone made Hebrew sessions feel deliberate: press `<leader>hb`, type Hebrew; toggle back, keep coding. Neat.
+That alone made Hebrew sessions feel deliberate: press `<leader>hb`, and start to type in Hebrew. Want to change back? Just press is again. Neat.
 
 ---
 
@@ -92,10 +91,11 @@ That alone made Hebrew sessions feel deliberate: press `<leader>hb`, type Hebrew
 
 ### Cursor shapes
 
-While living with the minimal toggle for a while, I kept having a feeling that the movement was acting strage.
-When I examined it closly I realized that the cursor was to blame.
-I use a vertical cursor on insert mode and it is left aligned which, when writing RTL gave the filling of jumping back and forth.
+While living with the minimal toggle for a while, I kept having a feeling that the movement was acting strange.
+When I examined it closely I realized that the cursor was to blame.
+I use a vertical cursor (┃) on insert mode and it is left aligned which, when writing RTL gave the filling of jumping back and forth.
 I checked and couldn't find any right-aligned version so I settled on underline as a replacement.
+So, I added to my toggle a little part which changed the cursor from vertical line to underline.
 
 ### Spellchecking (Hebrew + English)
 
@@ -107,21 +107,19 @@ The nice surprise: it is quite easy as **Neovim can prompt to download missing d
 Examples:
 
 ```lua
--- buffer-local preferences
+-- Note: 'opt_local' makes this a buffer-local preferences
 vim.opt_local.spell = true
 vim.opt_local.spelllang = { "he", "en_us" }
 ```
 
-If you need to fetch files manually, grab `he.utf-8.spl` (and optionally `he.utf-8.sug`) from Vim's mirrors and place them in your spell dir (create it if needed).
+If you need to fetch files manually, I'm told that you should grab `he.utf-8.spl` from Vim's mirrors and place them in your spell dir (create it if needed).
 
 ---
 
 ## My Full Hebrew RTL configuration
 
 ```lua
--- steady block for Normal/Elsewhere
--- steady bar for LTR insert
--- steady underline for RTL insert
+-- Defining the different cursors in a table
 local guicursor_ltr = table.concat({
   'n-v-c:block', -- normal/visual/cmdline: block
   'i-ci-ve:ver25', -- insert/insert-cmd/visual-exclude: vertical bar (steady)
@@ -141,6 +139,7 @@ vim.o.guicursor = guicursor_ltr
 
 local function enable_hebrew_spell()
   vim.opt_local.spelllang = { 'he', 'en_us' }
+  -- Disables the capitalization check, as Hebrew don't have caps
   vim.opt_local.spellcapcheck = ''
   vim.opt_local.spellsuggest = 'best,9'
 end
@@ -155,28 +154,24 @@ local function ToggleHebrewMode()
   local heb_mode = vim.b.hebrew_mode_enabled
 
   if not heb_mode then
-    -- --- Turn Hebrew mode ON (RTL) ---
     vim.opt_local.keymap = 'hebrew'
     vim.opt_local.iminsert = 1
     vim.opt_local.imsearch = 1
     vim.opt_local.rightleft = true
     vim.b.hebrew_mode_enabled = true
 
-    -- Switch insert cursor to steady underline
     vim.o.guicursor = guicursor_rtl
 
     enable_hebrew_spell()
 
     vim.notify('Hebrew mode: ON', vim.log.levels.INFO)
   else
-    -- --- Turn Hebrew mode OFF (LTR) ---
     vim.opt_local.keymap = ''
     vim.opt_local.iminsert = 0
     vim.opt_local.imsearch = 0
     vim.opt_local.rightleft = false
     vim.b.hebrew_mode_enabled = false
 
-    -- Switch insert cursor back to steady bar
     vim.o.guicursor = guicursor_ltr
 
     enable_english_spell()
@@ -185,12 +180,12 @@ local function ToggleHebrewMode()
   end
 end
 
--- Expose as a user command
+-- Expose as a command, just in case
 vim.api.nvim_create_user_command('HebrewToggle', function()
   ToggleHebrewMode()
 end, {})
 
--- Keymap: <leader>h to toggle
+-- And as a keymap
 vim.keymap.set('n', '<leader>hb', function()
   vim.cmd.HebrewToggle()
 end, { silent = true, desc = 'Toggle Hebrew mode (RTL/LTR)' })
@@ -203,38 +198,37 @@ end, { silent = true, desc = 'Toggle Hebrew mode (RTL/LTR)' })
 I didn't like the default Hebrew font.
 I decided to replace it manually.
 I use Kitty terminal and wanted a clean, legible Hebrew mono look.
-Mapping the **Hebrew Unicode block** to a specific font helped me keep things tidy:
+Mapping the **Hebrew Unicode block** to a specific font was quite straightforward:
+Kitty have a variable named `symbol_map` which let Kitty use a different font for specific "codepoint" ranges—in this case, the Hebrew block, let's see online...
+OK, it's U+0590–U+05FF. So, I just need to add the following to my config:
 
 ```conf
 # ~/.config/kitty/kitty.conf
 symbol_map U+0590-U+05FF Cousine
 ```
 
-`symbol_map` lets Kitty use a different font for specific codepoint ranges—in this case, the Hebrew block U+0590–U+05FF.
-**Note:** `symbol_map` was designed for _symbols_, not body text, I still need to test some edge cases to understand this one better. ()
+**Note:** `Some sources empethised that symbol_map` was designed for _symbols_, not body text.
+I still need to test some edge cases to understand this one better.
 
 ---
 
 ## Bonus 2 — Markdown rendering inside Neovim
 
-I've had a great experience using **render-markdown.nvim** for nicer Markdown in Neovim; I was pleased to find out that it behaved well even when my paragraphs were RTL.
+I've had a great experience using **render-markdown.nvim** for nicer Markdown in Neovim.I was pleased to find out that it behaved well even when my paragraphs were RTL.
 Highly recommended.
 
 On the CLI side, I hoped to pipe Markdown through **Glow** for pretty previews—but **Glow doesn't render RTL correctly** today (reversed text, left-aligned).
-I opened an issue there; until that's addressed, I'm sticking to Neovim for Markdown or using a bidi-aware pipeline.
-
-If you want a terminal fallback, a quick hack is running text through **FriBidi** (the Unicode BiDi reference implementation) to convert logical→visual order:
+I opened an issue there.
+Until that's addressed, I made a little bash alias which uses **FriBidi** (the Unicode BiDi reference implementation) as a sort of Hebrew variant of "cat" (so no "pizzazz", just text).
 
 ```bash
-# Make an alias that adapts to your current terminal width
-# (quote it so $(tput cols) evaluates when you run the alias, not when defining it)
 alias hat='fribidi --width $(tput cols)'
 
 # Usage:
 hat README.md
 ```
 
-FriBidi's CLI converts logical strings to visual; and `tput cols` gives you the current terminal width for cleaner wrapping.
+FriBidi's CLI converts logical strings to visual, and `tput cols` gives you the current terminal width so the result is right aligned.
 
 Now back to actually writing something...
 
