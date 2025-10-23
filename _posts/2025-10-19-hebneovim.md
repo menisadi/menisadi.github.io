@@ -4,6 +4,7 @@ title: "Hebrew & RTL in Neovim: a small, practical journey"
 date: 2025-10-15
 tags: [neovim, vim, hebrew, rtl, kitty, markdown]
 toc: true
+toc_sticky: true
 collection: posts
 author: Meni
 ---
@@ -235,8 +236,6 @@ FriBidi’s CLI converts logical strings to visual ones, and `tput cols` gives y
 Now back to actually writing something...
 
 *PS: If you have a good bidi-aware Markdown previewer for the terminal, I’m all ears.*
-
----
 
 [^salt]: I’m not an expert, so take this with a grain of salt.
 
