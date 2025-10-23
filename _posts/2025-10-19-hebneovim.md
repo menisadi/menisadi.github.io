@@ -8,56 +8,58 @@ collection: posts
 author: Meni
 ---
 
-I've been using Neovim as my daily driver at coding tasks for a 2 years now.
-Meanwhile, anything which is not code related - thoughts, ideas, plans, I been using MS Word or Google Docs.
-This is due to the fact that, beside coding, I write on Hebrew, and as Hebrew is written from right to left and uses its own set of letters I avoided using Neovim for those tasks.
-As anyone who uses Vim / Neovim knows, as soon as you become used to it any other text editing tool feels weird.
-So, I wanted to do give a Neovim a try and write my Hebrew stuff **inside Neovim**.
+I've been using Neovim as my daily driver for coding tasks for two years now.  
+Meanwhile, for anything not code-related: thoughts, ideas, plans, I've been using MS Word or Google Docs.  
+This is because, besides coding, I write in Hebrew, and since Hebrew is written from right to left and uses its own set of letters, I avoided using Neovim for those tasks.  
+As anyone who uses Vim or Neovim knows, once you get used to it, any other text editing tool feels weird.  
+So, I wanted to give Neovim a try and start writing my Hebrew stuff **inside Neovim**.
 
-It took some time (not too much, though), but I think I made it, and for the last several days I've been slowly migrating my Hebrew writing into Neovim.
-So here's the path I took, for those who just want the final config - [here it is](#my-full-hebrew-rtl-configuration).
-
----
-
-## Step 1 — Read the docs
-
-I started by looking at the official docs and found out that Neovim exposes the following essentials:
-
-- `rightleft` to draw lines from right to left.
-- `keymap=hebrew` to map keys, while the keyboard is in fact set to English, for typing Hebrew.
-
-In addition from skimming various configurations online I understood that I also need the following:
-
-- `iminsert` and `imsearch` to switch input method for insert/search.
-
-From what I understand those two tells Neovim to actually use the keymap and not rely on the OS typing setup.
-Note that Neovim automatically modify those when you change the keymap, but I guess it is better to state this explicitly and not rely on this underlying behaviour.
-Also, there is a key-binding which can toggle this when it is set automatically, and I don't want to allow it.
-
-I started with simply applying those settings.
-It worked, but I didn't love the experience and lots of people online say the same: Vim/Neovim isn't great for **bidi** (as in bi-directional writing) in the first place, and that is actually by design as they "inherent" this from the terminal itself.
-Instead threads online suggested that Emacs, as it relies on its own rendering system, which supports bidi, is the preferred option.
-Ok, I guess I could give Emacs a try, I'm not a hater or something.
+It took some time (not too much, though), but I think I made it. For the last several days, I've been slowly migrating my Hebrew writing into Neovim.  
+So here's the path I took. For those who just want the final config [here it is](#my-full-hebrew-rtl-configuration).
 
 ---
 
-## Step 2 — A brief Emacs tangent (and why I returned)
+## Step 1 - Read the docs
 
-I decided to go with Doom Emacs, which seems like the best way to enter the Emacs world.
-The installation process was not too bad and I could get a basic, usable Emacs configuration to work in half an hour or so.
-Emacs rendered Hebrew nicely, the people online were right, I guess.
-Next thing was to tweak it a bit to make my writing flow more smooth.
-I started reading about elisp, but then I suddenly stooped.
-I realized that I'm entering complete new and rich territory and to be honest, I didn't want to invest so much time to learn a whole new paradigm and a new language and overall get in a new ecosystem/config right now.
-Also, my little Emacs experiment made me realize that in fact I rarely use Hebrew and English mixed, so I don't really need bidi support, I only needed **one direction at a time**! So I went back to Neovim to give it a deeper try.
+I started by looking at the [official Neovim Hebrew docs](https://neovim.io/doc/user/hebrew.html) and found out that Neovim exposes the following essentials:
+
+- [`rightleft`](https://neovim.io/doc/user/options.html#'rightleft') to draw lines from right to left.
+- [`keymap=hebrew`](https://neovim.io/doc/user/options.html#'keymap') to map keys, while the keyboard is actually set to English, for typing Hebrew.
+
+In addition, from skimming various configurations online, I learned that I also needed the following:
+
+- [`iminsert`](https://neovim.io/doc/user/options.html#'iminsert') and [`imsearch`](https://neovim.io/doc/user/options.html#'imsearch') to switch input method for insert/search.
+
+From what I understand, those two tell Neovim to actually use the keymap instead of relying on the OS typing setup.  
+Note that Neovim automatically modifies those when you change the keymap, but I think it’s better to state this explicitly and not rely on that underlying behavior.  
+Also, there’s a key binding that can toggle this automatically, and I don’t want to allow it.  
+The docs mention some more options like `rlc` and `revins`, but for now I found that either their default values were already fine for me or their behavior was shadowed by one of the other commands.
+
+I started by simply applying those settings manually.  
+It worked, but I didn’t love the experience, and lots of people online say the same: Vim/Neovim isn’t great for **bidi** (bi-directional writing) in the first place. That’s actually by design, as they *inherit* this limitation from the terminal itself[^salt].  
+Instead, threads online suggested that Emacs, which relies on its own rendering system and supports bidi, is the preferred option ([see discussion](https://github.com/neovim/neovim/issues/553), [SuperUser thread](https://superuser.com/questions/455155/bidi-support-in-vim-should-i-revert-to-notepad)).  
+Okay, I figured I could give Emacs a try. I’m not a hater or anything.
 
 ---
 
-## Step 3 — Make a tiny RTL toggle (the minimally useful bit)
+## Step 2 - A brief Emacs tangent (and why I returned)
 
-I took off from the place I left and found out that wrapping those basic options behind a tiny toggle helped a lot.
-It wasn't yet good enough in my opinion but it was a usable start.
-At this point all I added was just the simplest working toggle and a hotkey:
+I decided to go with [Doom Emacs](https://github.com/doomemacs/doomemacs), which seems like the best way to enter the Emacs world.  
+The installation process wasn’t too bad, and I managed to get a basic, usable Emacs configuration running in about half an hour.  
+Emacs rendered Hebrew nicely, the people online were right, I guess.  
+Next, I wanted to tweak it a bit to make my writing flow more smoothly.  
+I started reading about elisp, but then I suddenly stopped.  
+I realized that I was entering a completely new and rich territory, and to be honest, I didn’t want to invest so much time learning a whole new paradigm, a new language, and an entirely new ecosystem right now.  
+Also, my little Emacs experiment made me realize that I rarely use Hebrew and English mixed, so I don’t really need bidi support, I only need **one direction at a time**!  
+So I went back to Neovim to give it a deeper try.
+
+---
+
+## Step 3 - Make a tiny RTL toggle (the minimally useful bit)
+
+I picked up where I left off and found that wrapping those basic options behind a tiny toggle helped a lot.  
+It wasn’t perfect yet, but it was a usable start.  
+At this point, all I added was a simple working toggle and a hotkey:
 
 ```lua
 local function HebrewToggle()
@@ -81,38 +83,40 @@ end
 vim.api.nvim_create_user_command("HebrewToggle", HebrewToggle, {})
 vim.keymap.set("n", "<leader>hb", function() vim.cmd.HebrewToggle() end,
   { silent = true, desc = "Toggle Hebrew mode (RTL/LTR)" })
-```
+````
 
-That alone made Hebrew sessions feel deliberate: press `<leader>hb`, and start to type in Hebrew. Want to change back? Just press is again. Neat.
+That alone made Hebrew sessions feel deliberate: press `<leader>hb`, and start typing in Hebrew.
+Want to switch back? Just press it again. Neat.
 
 ---
 
-## Step 4 — Small quality-of-life fixes (later improvements)
+## Step 4 - Small quality-of-life fixes (later improvements)
 
 ### Cursor shapes
 
-While living with the minimal toggle for a while, I kept having a feeling that the movement was acting strange.
-When I examined it closely I realized that the cursor was to blame.
-I use a vertical cursor (┃) on insert mode and it is left aligned which, when writing RTL gave the filling of jumping back and forth.
-I checked and couldn't find any right-aligned version so I settled on underline as a replacement.
-So, I added to my toggle a little part which changed the cursor from vertical line to underline.
+While living with the minimal toggle for a while, I kept feeling that movement was acting strangely.
+When I examined it closely, I realized that the cursor was to blame.
+I use a vertical cursor (┃) in insert mode, and it’s left-aligned, which, when writing RTL, gave the feeling of jumping back and forth.
+I couldn’t find any right-aligned version, so I settled on an underline as a replacement.
+So, I added a small bit to my toggle that changed the cursor from a vertical line to an underline (see [`guicursor`](https://neovim.io/doc/user/options.html#'guicursor')).
 
 ### Spellchecking (Hebrew + English)
 
-Next, I noted that my spellchecker is marking the entire butter.
-As it is set to English it made sense.
-At first I simply turned it off, but after a little while I decided to give Hebrew spell-check a try.
-The nice surprise: it is quite easy as **Neovim can prompt to download missing dictionaries** when you enable `spell` and set `spelllang` to a language you don't have yet. 
+Next, I noticed that my spellchecker was marking the entire buffer.
+Since it was set to English, that made sense.
+At first, I simply turned it off, but after a while, I decided to give Hebrew spell-checking a try.
+To my surprise, it was quite easy: [Neovim can prompt you to download missing dictionaries](https://neovim.io/doc/user/spell.html) when you enable `spell` and set `spelllang` to a language you don’t have yet.
 
-Examples:
+Example:
 
 ```lua
--- Note: 'opt_local' makes this a buffer-local preferences
+-- Note: 'opt_local' makes this a buffer-local preference
 vim.opt_local.spell = true
 vim.opt_local.spelllang = { "he", "en_us" }
 ```
 
-If you need to fetch files manually, I'm told that you should grab `he.utf-8.spl` from Vim's mirrors and place them in your spell dir (create it if needed).
+If you need to fetch the files manually, you can grab `he.utf-8.spl` from Vim’s mirrors and place it in your spell directory (create it if needed).
+See also [this post on spellchecking in Neovim](https://willcodefor.beer/posts/spellnvim).
 
 ---
 
@@ -139,7 +143,7 @@ vim.o.guicursor = guicursor_ltr
 
 local function enable_hebrew_spell()
   vim.opt_local.spelllang = { 'he', 'en_us' }
-  -- Disables the capitalization check, as Hebrew don't have caps
+  -- Disable capitalization check, as Hebrew doesn’t have caps
   vim.opt_local.spellcapcheck = ''
   vim.opt_local.spellsuggest = 'best,9'
 end
@@ -193,33 +197,31 @@ end, { silent = true, desc = 'Toggle Hebrew mode (RTL/LTR)' })
 
 ---
 
-## Bonus 1 — Terminal & font details (Kitty)
+## Bonus 1 - Terminal & font details (Kitty)
 
-I didn't like the default Hebrew font.
-I decided to replace it manually.
-I use Kitty terminal and wanted a clean, legible Hebrew mono look.
+I didn’t like the default Hebrew font, so I decided to replace it manually.
+I use [Kitty terminal](https://sw.kovidgoyal.net/kitty/conf/) and wanted a clean, legible Hebrew mono look.
 Mapping the **Hebrew Unicode block** to a specific font was quite straightforward:
-Kitty have a variable named `symbol_map` which let Kitty use a different font for specific "codepoint" ranges—in this case, the Hebrew block, let's see online...
-OK, it's U+0590–U+05FF. So, I just need to add the following to my config:
+Kitty has a variable named `symbol_map` which lets it use a different font for specific codepoint ranges, in this case, the Hebrew block.
+A quick lookup online shows it’s U+0590–U+05FF.
+So, I just needed to add the following to my config:
 
 ```conf
 # ~/.config/kitty/kitty.conf
 symbol_map U+0590-U+05FF Cousine
 ```
 
-**Note:** `Some sources empethised that symbol_map` was designed for _symbols_, not body text.
-I still need to test some edge cases to understand this one better.
-
 ---
 
-## Bonus 2 — Markdown rendering inside Neovim
+## Bonus 2 - Markdown rendering
 
-I've had a great experience using **render-markdown.nvim** for nicer Markdown in Neovim.I was pleased to find out that it behaved well even when my paragraphs were RTL.
+I’ve had a great experience using [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim) for nicer Markdown in Neovim.
+I was pleased to find out that it behaved well even when my paragraphs were RTL.
 Highly recommended.
 
-On the CLI side, I hoped to pipe Markdown through **Glow** for pretty previews—but **Glow doesn't render RTL correctly** today (reversed text, left-aligned).
-I opened an issue there.
-Until that's addressed, I made a little bash alias which uses **FriBidi** (the Unicode BiDi reference implementation) as a sort of Hebrew variant of "cat" (so no "pizzazz", just text).
+On the CLI side, I hoped to pipe Markdown through [Glow](https://github.com/charmbracelet/glow/) for pretty previews, but Glow doesn’t render RTL correctly today (reversed text, left-aligned).
+I [opened an issue](https://github.com/charmbracelet/glow/issues/725) there.
+Until that’s addressed, I made a little Bash alias which uses [FriBidi](https://manpages.org/fribidi) (the Unicode BiDi reference implementation) as a sort of Hebrew variant of `cat` (so no pizzazz, just text):
 
 ```bash
 alias hat='fribidi --width $(tput cols)'
@@ -228,21 +230,31 @@ alias hat='fribidi --width $(tput cols)'
 hat README.md
 ```
 
-FriBidi's CLI converts logical strings to visual, and `tput cols` gives you the current terminal width so the result is right aligned.
+FriBidi’s CLI converts logical strings to visual ones, and `tput cols` gives you the current terminal width so the result is right-aligned.
 
 Now back to actually writing something...
 
-_PS: If you have a good bidi-aware Markdown previewer for the terminal, I'm all ears._
+*PS: If you have a good bidi-aware Markdown previewer for the terminal, I’m all ears.*
 
 ---
 
-## References & further reading
+[^salt]: I’m not an expert, so take this with a grain of salt.
 
-[1]: https://neovim.io/doc/user/hebrew.html
-[2]: https://neovim.io/doc/user/options.html#'rightleft'
-[3]: https://neovim.io/doc/user/options.html#'iminsert'
-[4]: https://willcodefor.beer/posts/spellnvim?utm_source=chatgpt.com "Spellcheck multiple languages in Neovim - willcodefor.beer"
-[5]: https://sw.kovidgoyal.net/kitty/conf/?utm_source=chatgpt.com "kitty.conf - kitty"
-[6]: https://github.com/MeanderingProgrammer/render-markdown.nvim?utm_source=chatgpt.com "GitHub - MeanderingProgrammer/render-markdown.nvim: Plugin to improve ..."
-[7]: https://github.com/charmbracelet/glow/issues/725?utm_source=chatgpt.com "RTL text is not presented properly (reveresed and left-aligned)"
-[8]: https://manpages.org/fribidi?utm_source=chatgpt.com "man fribidi (1): a command line interface for the fribidi library ..."
+---
+
+## References
+
+* [Neovim Hebrew Docs](https://neovim.io/doc/user/hebrew.html)
+* [Neovim Options – rightleft](https://neovim.io/doc/user/options.html#'rightleft')
+* [Neovim Options – iminsert](https://neovim.io/doc/user/options.html#'iminsert')
+* [Neovim GitHub issue #553](https://github.com/neovim/neovim/issues/553)
+* [Superuser: Bidi support in Vim](https://superuser.com/questions/455155/bidi-support-in-vim-should-i-revert-to-notepad)
+* [Doom Emacs](https://github.com/doomemacs/doomemacs)
+* [Neovim Options – guicursor](https://neovim.io/doc/user/options.html#'guicursor')
+* [Neovim Spell Documentation](https://neovim.io/doc/user/spell.html)
+* [“Spellchecking in Neovim” by Will Code for Beer](https://willcodefor.beer/posts/spellnvim)
+* [Kitty Config Docs](https://sw.kovidgoyal.net/kitty/conf/)
+* [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+* [Glow](https://github.com/charmbracelet/glow/)
+* [Glow Issue #725 – RTL rendering](https://github.com/charmbracelet/glow/issues/725)
+* [FriBidi manpage](https://manpages.org/fribidi)
