@@ -9,13 +9,13 @@ collection: posts
 author: Meni
 ---
 
-I've been using Neovim as my daily driver for coding tasks for two years now.  
-Meanwhile, for anything not code-related: thoughts, ideas, plans, I've been using MS Word or Google Docs.  
-This is because, besides coding, I write in Hebrew, and since Hebrew is written from right to left and uses its own set of letters, I avoided using Neovim for those tasks.  
-As anyone who uses Vim or Neovim knows, once you get used to it, any other text editing tool feels weird.  
+I've been using Neovim as my daily driver for coding tasks for two years now. 
+Meanwhile, for anything not code-related: thoughts, ideas, plans, I've been using MS Word or Google Docs. 
+This is because, besides coding, I write in Hebrew, and since Hebrew is written from right to left and uses its own set of letters, I avoided using Neovim for those tasks. 
+As anyone who uses Vim or Neovim knows, once you get used to it, any other text editing tool feels weird. 
 So, I wanted to give Neovim a try and start writing my Hebrew stuff **inside Neovim**.
 
-It took some time (not too much, though), but I think I made it. For the last several days, I've been slowly migrating my Hebrew writing into Neovim.  
+It took some time (not too much, though), but I think I made it. For the last several days, I've been slowly migrating my Hebrew writing into Neovim. 
 So here's the path I took. For those who just want the final config [here it is](#my-full-hebrew-rtl-configuration).
 
 ---
@@ -31,35 +31,35 @@ In addition, from skimming various configurations online, I learned that I also 
 
 - [`iminsert`](https://neovim.io/doc/user/options.html#'iminsert') and [`imsearch`](https://neovim.io/doc/user/options.html#'imsearch') to switch input method for insert/search.
 
-From what I understand, those two tell Neovim to actually use the keymap instead of relying on the OS typing setup.  
-Note that Neovim automatically modifies those when you change the keymap, but I think it’s better to state this explicitly and not rely on that underlying behavior.  
-Also, there’s a key binding that can toggle this automatically, and I don’t want to allow it.  
+From what I understand, those two tell Neovim to actually use the keymap instead of relying on the OS typing setup. 
+Note that Neovim automatically modifies those when you change the keymap, but I think it’s better to state this explicitly and not rely on that underlying behavior. 
+Also, there’s a key binding that can toggle this automatically, and I don’t want to allow it. 
 The docs mention some more options like `rlc` and `revins`, but for now I found that either their default values were already fine for me or their behavior was shadowed by one of the other commands.
 
-I started by simply applying those settings manually.  
-It worked, but I didn’t love the experience, and lots of people online say the same: Vim/Neovim isn’t great for **bidi** (bi-directional writing) in the first place. That’s actually by design, as they *inherit* this limitation from the terminal itself[^salt].  
-Instead, threads online suggested that Emacs, which relies on its own rendering system and supports bidi, is the preferred option ([see discussion](https://github.com/neovim/neovim/issues/553), [SuperUser thread](https://superuser.com/questions/455155/bidi-support-in-vim-should-i-revert-to-notepad)).  
+I started by simply applying those settings manually. 
+It worked, but I didn’t love the experience, and lots of people online say the same: Vim/Neovim isn’t great for **bidi** (bi-directional writing) in the first place. That’s actually by design, as they *inherit* this limitation from the terminal itself[^salt]. 
+Instead, threads online suggested that Emacs, which relies on its own rendering system and supports bidi, is the preferred option ([see discussion](https://github.com/neovim/neovim/issues/553), [SuperUser thread](https://superuser.com/questions/455155/bidi-support-in-vim-should-i-revert-to-notepad)). 
 Okay, I figured I could give Emacs a try. I’m not a hater or anything.
 
 ---
 
 ## Step 2 - A brief Emacs tangent (and why I returned)
 
-I decided to go with [Doom Emacs](https://github.com/doomemacs/doomemacs), which seems like the best way to enter the Emacs world.  
-The installation process wasn’t too bad, and I managed to get a basic, usable Emacs configuration running in about half an hour.  
-Emacs rendered Hebrew nicely, the people online were right, I guess.  
-Next, I wanted to tweak it a bit to make my writing flow more smoothly.  
-I started reading about elisp, but then I suddenly stopped.  
-I realized that I was entering a completely new and rich territory, and to be honest, I didn’t want to invest so much time learning a whole new paradigm, a new language, and an entirely new ecosystem right now.  
-Also, my little Emacs experiment made me realize that I rarely use Hebrew and English mixed, so I don’t really need bidi support, I only need **one direction at a time**!  
+I decided to go with [Doom Emacs](https://github.com/doomemacs/doomemacs), which seems like the best way to enter the Emacs world. 
+The installation process wasn’t too bad, and I managed to get a basic, usable Emacs configuration running in about half an hour. 
+Emacs rendered Hebrew nicely, the people online were right, I guess. 
+Next, I wanted to tweak it a bit to make my writing flow more smoothly. 
+I started reading about elisp, but then I suddenly stopped. 
+I realized that I was entering a completely new and rich territory, and to be honest, I didn’t want to invest so much time learning a whole new paradigm, a new language, and an entirely new ecosystem right now. 
+Also, my little Emacs experiment made me realize that I rarely use Hebrew and English mixed, so I don’t really need bidi support, I only need **one direction at a time**! 
 So I went back to Neovim to give it a deeper try.
 
 ---
 
 ## Step 3 - Make a tiny RTL toggle (the minimally useful bit)
 
-I picked up where I left off and found that wrapping those basic options behind a tiny toggle helped a lot.  
-It wasn’t perfect yet, but it was a usable start.  
+I picked up where I left off and found that wrapping those basic options behind a tiny toggle helped a lot. 
+It wasn’t perfect yet, but it was a usable start. 
 At this point, all I added was a simple working toggle and a hotkey:
 
 ```lua
