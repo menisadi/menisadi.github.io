@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "How Wrong Was Spotify Wrapped? (2024)"
+description: Comparing Spotify Wrapped to Last.fm using ranking metrics like Jaccard, Spearman, Kendall Tau, Edit Distance, and RBO.
 toc: true
 # toc_label: "Spotify Wrapped VS Last.fm"
 collection: posts
@@ -56,7 +57,7 @@ I extracted the tracklist from this playlist and used it as the best available p
 With the two lists - Last.fm’s data and Spotify’s playlist - side by side,
 the discrepancies became immediately obvious.
 
-![Visual Comarison]({{ '/assets/spotvslast/spotvslst.png' | relative_url }})
+![Visual Comparison]({{ '/assets/spotvslast/spotvslst.png' | relative_url }})
 
 As you can see, my instincts were right regarding "Sunset."
 In general, the two lists don’t look unrelated, but there are significant discrepancies.
@@ -157,6 +158,8 @@ In order to put those numbers in perspective, I created 3 mock lists to compare:
 
 First, let’s take a peek at those visually.
 
+_Table 1: Comparing Spotify vs Last.fm vs mock baselines._
+
 |  # | Spotify             | Swapped             | Shuffled                    | Fake     |
 | -: | :------------------ | :------------------ | :-------------------------- | :------- |
 |  0 | Red Wine Supernova  | Bunny Is A Rider    | labour                      | Track 1  |
@@ -237,6 +240,8 @@ That’s the qualitative side. Now, let’s look at the numbers.
 
 I ran exactly the same battery of metrics as before.
 Here is the updated table:
+
+_Table 2: Adding Spotify raw logs into the comparison_
 
 | target      | edit distance | edit distance (norm) | bubblesort distance | kendall tau | spearman | jaccard | rbo  | composite score |
 | ----------- | ------------- | -------------------- | ------------------- | ----------- | -------- | ------- | ---- | --------------- |
