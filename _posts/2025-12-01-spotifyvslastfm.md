@@ -114,9 +114,9 @@ After digging a bit online, I realized that this metric has another name: **Kend
 I then also realized that this distance has a "correlation cousin": the **Kendall Tau Correlation Coefficient**,
 [which can be calculated by using a different normalization factor.](https://en.wikipedia.org/wiki/Kendall_tau_distance#Comparison_to_Kendall_tau_rank_correlation_coefficient)
 
-Kendall Tau correlation here is -0.089, almost neutral but slightly negative.
-The normalized bubble-sort distance is 0.521.
-So even if you only let yourself swap neighbors, you’d be doing about half the possible swaps to get alignment - still a messy reorder.
+Kendall Tau correlation here is 0.578 - moderately positive.
+The normalized bubble-sort distance lands at 0.211, meaning that about 21% of all possible adjacent swaps would be required to turn one list into the other.
+That’s not terrible, but it definitely reflects meaningful reordering.
 
 ### Niche idea: RBO
 
