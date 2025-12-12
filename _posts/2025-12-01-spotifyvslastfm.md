@@ -55,7 +55,7 @@ I extracted the tracklist from this playlist and used it as the best available p
 With the two lists - Last.fm’s data and Spotify’s playlist - side by side,
 the discrepancies became immediately obvious.
 
-![visual-comarison]({{ '/assets/spotvslast/spotvslast.png' | relative_url }})
+![Visual Comarison]({{ '/assets/spotvslast/spotvslst.png' | relative_url }})
 
 As you can see, my instincts were right regarding "Sunset."
 In general, the two lists don’t look unrelated, but there are significant discrepancies.
@@ -225,7 +225,7 @@ From that, I built **Spotify Raw Top 100**.
 
 Once I had the raw-based top-100 list, I put it side-by-side with the Wrapped playlist.
 
-![spotify-vs-spotify]({{ '/assets/spotvslast/spotvsspot.png' | relative_url }})
+![Spotify VS Spotify]({{ '/assets/spotvslast/spotvsspot.png' | relative_url }})
 
 Long story short - they are not the same.
 Subjectively, the raw top 20 felt much more like "yes, this is my year in music."
