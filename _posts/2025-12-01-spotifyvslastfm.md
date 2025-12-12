@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "How Wrong Was Spotify Wrapped? Comparing Ranked Lists Using Various Statistical Metrics"
+title: "How Wrong Was Spotify Wrapped?"
 subtitle: "What statistical distance metrics can teach us about mismatched playlists and imperfect rankings."
 toc: true
 # toc_label: "Spotify Wrapped VS Last.fm"
