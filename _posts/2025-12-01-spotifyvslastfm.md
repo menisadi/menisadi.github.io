@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "How Wrong Was Spotify Wrapped?"
+title: "How Wrong Was Spotify Wrapped? (2024)"
 toc: true
 # toc_label: "Spotify Wrapped VS Last.fm"
 collection: posts
@@ -16,7 +16,8 @@ tags:
   - rbo
   - music
 ---
-_A practical deep dive into similarity and distance metrics using real Spotify and Last.fm data._
+
+_A practical deep dive into similarity and distance metrics using Spotify Wrapped and Last.fm data._
 
 ## Background
 
