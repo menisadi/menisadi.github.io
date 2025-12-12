@@ -16,7 +16,7 @@ tags:
   - rbo
   - music
 ---
-* A practical deep dive into similarity and distance metrics using real Spotify and Last.fm data. *
+_A practical deep dive into similarity and distance metrics using real Spotify and Last.fm data._
 
 ## Background
 
