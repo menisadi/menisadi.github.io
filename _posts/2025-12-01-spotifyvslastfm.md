@@ -1,7 +1,6 @@
 ---
 layout: single
 title: "How Wrong Was Spotify Wrapped?"
-subtitle: "What statistical distance metrics can teach us about mismatched playlists and imperfect rankings."
 toc: true
 # toc_label: "Spotify Wrapped VS Last.fm"
 collection: posts
@@ -17,6 +16,7 @@ tags:
   - rbo
   - music
 ---
+* A practical deep dive into similarity and distance metrics using real Spotify and Last.fm data. *
 
 ## Background
 
