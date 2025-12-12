@@ -17,7 +17,7 @@ tags:
   - music
 ---
 
-_A practical deep dive into similarity and distance metrics using Spotify Wrapped and Last.fm data._
+_An excuse to play with ranking metrics, sparked by Spotify Wrapped messing with my top songs._
 
 ## Background
 
