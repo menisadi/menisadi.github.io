@@ -3,7 +3,6 @@ layout: single
 title: "How Wrong Was Spotify Wrapped? (2024)"
 description: Comparing Spotify Wrapped to Last.fm using ranking metrics like Jaccard, Spearman, Kendall Tau, Edit Distance, and RBO.
 toc: true
-# toc_label: "Spotify Wrapped VS Last.fm"
 collection: posts
 tags:
   - ranking metrics
@@ -258,8 +257,9 @@ _Table 2: Adding Spotify raw logs into the comparison_
 
 ## Conclusion? Is there any?
 
-And maybe this whole rabbit hole was also just an excuse for me to dig deeper into the strange world of ranked-list comparison - but honestly, I’m glad it was.
-I’m not sure what Spotify did or how their numbers ended up being such a mismatch.
+Maybe this whole rabbit hole was just my excuse to dive into ranked-list comparison.
+Either way, I enjoyed the ride.
+I’m still not sure what Spotify did or how their numbers ended up being such a mismatch.
 Is this intentional?
 Is there a reason or a deliberate bias?
 I don't know, and I have no indication that this is the case.
