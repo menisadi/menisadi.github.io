@@ -7,6 +7,7 @@ title: Meni Sadigurschi
 email:
 description: >- # this means to ignore newlines until "baseurl:"
     My personal site
+url: "https://menisadi.github.io"
 twitter_username: menisadi
 github_username: menisadi
 minimal_mistakes_skin: dark
@@ -47,6 +48,7 @@ plugins:
     - jekyll-sitemap
     - jekyll-gist
     - jemoji
+    - jekyll-feed
     - jekyll-include-cache
 
 author:
