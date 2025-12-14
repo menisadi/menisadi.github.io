@@ -3,6 +3,7 @@ layout: single
 title: "How Wrong Was Spotify Wrapped? (2024)"
 description: Comparing Spotify Wrapped to Last.fm using ranking metrics like Jaccard, Spearman, Kendall Tau, Edit Distance, and RBO.
 toc: true
+toc_sticky: true
 collection: posts
 tags:
   - ranking metrics

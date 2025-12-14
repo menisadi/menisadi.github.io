@@ -2,11 +2,11 @@
 layout: single
 title: "Hebrew & RTL in Neovim: a small, practical journey"
 date: 2025-10-15
-tags: [neovim, vim, hebrew, rtl, kitty, markdown]
 toc: true
 toc_sticky: true
 collection: posts
 author: Meni
+tags: [neovim, vim, hebrew, rtl, kitty, markdown]
 ---
 
 I've been using Neovim as my daily driver for coding tasks for two years now. 
