@@ -285,7 +285,7 @@ Here are the new metrics:
 | Spearman correlation       | **0.897** |
 | Jaccard similarity         | **0.802** |
 | RBO                        | **0.902** |
-| Composite score            |  **0.62** |
+| Composite score            |  **0.78** |
 
 ### What changed?
 
