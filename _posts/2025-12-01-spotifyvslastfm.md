@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "How Wrong Was Spotify Wrapped? (2024)"
+title: "How Wrong Was Spotify Wrapped? (Updated for 2025)"
 description: Comparing Spotify Wrapped to Last.fm using ranking metrics like Jaccard, Spearman, Kendall Tau, Edit Distance, and RBO.
 toc: true
 toc_sticky: true
@@ -255,6 +255,44 @@ _Table 2: Adding Spotify raw logs into the comparison_
 
 **In one sentence:**
 **Spotify Wrapped disagrees with Spotify’s own raw listening logs almost exactly as much as it disagrees with Last.fm** - both sit around the same mid-range "not random, but not close enough" zone.*
+
+## 2025 Update: So… Did Spotify Wrapped Improve?
+
+A year later, I ran the exact same experiment again - Spotify Wrapped 2025 vs. my Last.fm top songs - using the same ranking metrics as before.
+Let’s start with the visual comparison:
+
+![Visual Comparison 2025]({{ '/assets/spotvslast/spotvslaft25.png' | relative_url }})
+
+Looking better already!
+
+Here are the new metrics:
+
+| metric                     |     value |
+| -------------------------- | --------: |
+| edit distance              |        86 |
+| edit distance (normalized) |     0.860 |
+| bubble-sort distance       |     0.124 |
+| Kendall Tau                | **0.752** |
+| Spearman correlation       |     0.080 |
+| Jaccard similarity         | **0.802** |
+| RBO                        | **0.902** |
+| Composite score            |  **0.62** |
+
+### What changed?
+
+A few things stand out immediately:
+
+* **Kendall Tau jumped from 0.578 → 0.752**, suggesting the **order** of the songs aligns much more closely than it did in 2024.
+* **Jaccard increased to 0.802**, so the overlap between the two lists is significantly larger.
+* **RBO at 0.902** is particularly striking - the *tops* of the lists now agree far more than before.
+* Spearman remains weak (as expected, since small positional shifts hurt Spearman), but the overall story is clear:
+  **2025 Wrapped is substantially closer to my Last.fm reality.**
+
+There is still a gap between the two data sources, but this time Spotify’s list feels much more like an honest reflection of my listening habits.
+This is real progress.
+Good for you, Spotify!
+
+*Note: I also requested the updated raw data from Spotify so I can repeat the “raw vs. Wrapped” comparison. Still waiting for a response.*
 
 ## Conclusion? Is there any?
 
