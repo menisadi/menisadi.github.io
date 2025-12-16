@@ -87,9 +87,12 @@ This is the statistician’s immediate go-to tool for such analysis.
 if I rank both lists, do the positions line up?
 If we number the songs somehow, will the resulting lists of numbers move up and down together,
 even if not at the same speed?
-Here it landed at -0.201.
-Negative means the rank orders tilt against each other - when Spotify says "high," Last.fm often says "mid" or "low."
-It’s not a perfect inversion, but it shows order disagreements even among the shared songs.
+
+Here it landed at **0.726**.
+That’s a fairly strong positive correlation: when Spotify ranks a song high, Last.fm usually ranks it high too,
+and low tends to go with low.
+It’s not perfect-there are still clear local mismatches like "Sunset"-but Spearman is already telling us that,
+on the whole, the two rankings move in the same direction.
 
 ### The ML-flavored: Edit Distance
 
@@ -135,8 +138,11 @@ Interesting.
 
 To be honest, I am not sure.
 Even though Jaccard ignores the order of the songs, it is important to note that all the ranking-aware metrics ignore **all the songs in the world which were not listed on either list!**
-Meaning that this view of the lists being uncorrelated or even negatively correlated is in the narrow world of the 100–200 songs on the two lists.
-In a way, they can be seen as complementary to Jaccard.
+Meaning that this view of the lists being moderately to strongly **positively** correlated
+(Kendall around 0.58 and Spearman around 0.73) is still restricted to the narrow world of the
+100–200 songs that actually appear on the two lists.
+In a way, these rank correlations can be seen as complementary to Jaccard:
+they talk about agreement *within* that overlapping slice of my listening, not about the entire musical universe.
 
 From those ranking-aware metrics I can't really decide,
 as it feels that each tells me a slightly different story and highlights a slightly different aspect.
@@ -185,18 +191,17 @@ Armed with this, I ran the same comparisons as above and aggregated them all int
 
 | target   | edit distance | edit distance (norm) | bubblesort distance | kendall tau | spearman | jaccard | rbo  | composite score |
 | :------- | :------------ | :------------------- | :------------------ | :---------- | :------- | :------ | :--- | :-------------- |
-| Last.fm  | 88            | 0.88                 | 0.21                | 0.58        | -0.2     | 0.64    | 0.65 | 0.48            |
-| Shuffled | 99            | 0.99                 | 0.49                | 0.03        | 0.04     | 1.0     | 0.08 | 0.34            |
-| Swapped  | 51            | 0.51                 | 0.01                | 0.98        | 0.999    | 1.0     | 0.84 | 0.9             |
-| Fake     | 100           | 1.0                  | 0.5                 | -0.01       | -0.86    | 0.0     | 0.0  | 0.0             |
+| Last.fm  | 88            | 0.88                 | 0.21                | 0.58        | 0.73     | 0.64    | 0.65 | 0.60            |
+| Shuffled | 99            | 0.99                 | 0.49                | 0.03        | 0.04     | 1.00    | 0.08 | 0.34            |
+| Swapped  | 51            | 0.51                 | 0.01                | 0.98        | 1.00     | 1.00    | 0.84 | 0.90            |
+| Fake     | 100           | 1.00                 | 0.50                | -0.01       | -0.50    | 0.00    | 0.00 | 0.00            |
 
-I guess we can see that my Last.fm data sits somewhere between the "Swapped" (very similar) and "Shuffled" (very different) baselines,
-but noticeably closer to Shuffled than I expected.
+I guess we can see that my Last.fm data sits somewhere between the "Swapped" (very similar) and "Shuffled" (very different) baselines.
 Note: the composite score I built isn’t meant to be a canonical metric,
 but it’s a sanity check that captures the general magnitude of difference across all methods.
-Here, Last.fm’s composite score (0.48) is far from the near-perfect "Swapped" scenario (0.90),
-and much closer to the chaotic "Shuffled" case (0.34).
-In other words: there is a serious gap between Spotify's list and Last.fm's list.
+Here, Last.fm’s composite score (0.6) is well below the near-perfect "Swapped" scenario (0.9)
+and well above the "Shuffled" case (0.34).
+In other words: there is a substantial gap between Spotify's list and Last.fm's list.
 It’s not "total randomness," but it’s also not "a few mistakes."
 
 ## Spotify raw data!
@@ -247,16 +252,18 @@ _Table 2: Adding Spotify raw logs into the comparison_
 
 | target      | edit distance | edit distance (norm) | bubblesort distance | kendall tau | spearman | jaccard | rbo  | composite score |
 | ----------- | ------------- | -------------------- | ------------------- | ----------- | -------- | ------- | ---- | --------------- |
-| **Last.fm** | 88            | 0.88                 | 0.21                | 0.58        | -0.20    | 0.64    | 0.65 | **0.48**        |
-| **Raw**     | 93            | 0.93                 | 0.17                | 0.67        | -0.21    | 0.70    | 0.61 | **0.46**        |
+| **Last.fm** | 88            | 0.88                 | 0.21                | 0.58        | 0.73     | 0.64    | 0.65 | **0.60**        |
+| **Raw**     | 93            | 0.93                 | 0.17                | 0.67        | 0.83     | 0.70    | 0.61 | **0.63**        |
 | Shuffled    | 99            | 0.99                 | 0.49                | 0.03        | 0.04     | 1.00    | 0.08 | 0.34            |
-| Swapped     | 51            | 0.51                 | 0.01                | 0.98        | 0.999    | 1.00    | 0.84 | 0.90            |
-| Fake        | 100           | 1.00                 | 0.50                | -0.01       | -0.86    | 0.00    | 0.00 | 0.00            |
+| Swapped     | 51            | 0.51                 | 0.01                | 0.98        | 1.00     | 1.00    | 0.84 | 0.90            |
+| Fake        | 100           | 1.00                 | 0.50                | -0.01       | -0.50    | 0.00    | 0.00 | 0.00            |
 
 ### So where does Raw vs Wrapped actually land?
 
 **In one sentence:**
-**Spotify Wrapped disagrees with Spotify’s own raw listening logs almost exactly as much as it disagrees with Last.fm** - both sit around the same mid-range "not random, but not close enough" zone.*
+**Spotify Wrapped agrees with Spotify’s own raw listening logs to about the same degree that it agrees with Last.fm**.
+The rank correlations are solidly positive (Spearman ≈ 0.83 vs. the raw data and ≈ 0.73 vs. Last.fm),
+but still far from a perfect match.
 
 ## 2025 Update: So… Did Spotify Wrapped Improve?
 
@@ -275,7 +282,7 @@ Here are the new metrics:
 | edit distance (normalized) |     0.860 |
 | bubble-sort distance       |     0.124 |
 | Kendall Tau                | **0.752** |
-| Spearman correlation       |     0.080 |
+| Spearman correlation       | **0.897** |
 | Jaccard similarity         | **0.802** |
 | RBO                        | **0.902** |
 | Composite score            |  **0.62** |
@@ -285,10 +292,12 @@ Here are the new metrics:
 A few things stand out immediately:
 
 * **Kendall Tau jumped from 0.578 → 0.752**, suggesting the **order** of the songs aligns much more closely than it did in 2024.
+* **Spearman correlation is now 0.897**, which is very high - once you focus on the songs that appear in both lists, their relative positions now move almost in lockstep between Spotify and Last.fm.
 * **Jaccard increased to 0.802**, so the overlap between the two lists is significantly larger.
 * **RBO at 0.902** is particularly striking - the *tops* of the lists now agree far more than before.
-* Spearman remains weak (as expected, since small positional shifts hurt Spearman), but the overall story is clear:
-  **2025 Wrapped is substantially closer to my Last.fm reality.**
+
+Taken together, these metrics all point in the same direction:
+**2025 Wrapped is substantially closer to my Last.fm reality.**
 
 There is still a gap between the two data sources, but this time Spotify’s list feels much more like an honest reflection of my listening habits.
 This is real progress.
