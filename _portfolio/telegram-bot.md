@@ -36,9 +36,13 @@ In addition to the current features, I plan  to add some more features in the fu
 --Just search for "[@textchessbot](https://t.me/textchessbot)" on Telegram and start a conversation with the bot. It will guide you through the process of starting a new game.--
 At the moment the hosting service is causing some problem. In order to use the bot you would have to clone the repository and run it locally.
 
+## Update: terminal CLI version
+
+For those who live in the terminal and prefer to stay there instead of using an app, I ported the bot into a terminal CLI you can install from PyPI as `play-ch0`.
+Source code lives on [GitHub](https://github.com/menisadi/ch0).
+
 ## Source code
 
 The source code for my chess Telegram bot is available on [GitHub](https://github.com/menisadi/ChessBot). Feel free to explore, contribute, or use it as a reference for your own projects.
 
 *Note: This blog post is about a personal project and is not affiliated with or endorsed by Telegram or any official chess organizations.*
-
