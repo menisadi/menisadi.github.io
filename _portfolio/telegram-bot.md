@@ -40,9 +40,11 @@ At the moment the hosting service is causing some problem. In order to use the b
 
 For those who live in the terminal and prefer to stay there instead of using an app, I ported the bot into a terminal CLI you can install from PyPI as `play-ch0`.
 Source code lives on [GitHub](https://github.com/menisadi/ch0).
+Little heads‑up: this port is mostly vibe coded using Codex CLI. I reviewed most of it, but the LLM did the heavy lifting.
 
 ## Source code
 
 The source code for my chess Telegram bot is available on [GitHub](https://github.com/menisadi/ChessBot). Feel free to explore, contribute, or use it as a reference for your own projects.
 
 *Note: This blog post is about a personal project and is not affiliated with or endorsed by Telegram or any official chess organizations.*
+
