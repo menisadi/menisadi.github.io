@@ -303,14 +303,17 @@ There is still a gap between the two data sources, but this time Spotify’s lis
 This is real progress.
 Good for you, Spotify!
 
-### 2025 follow-up: Wrapped vs. Spotify raw logs
+### Update 2: Wrapped vs. Spotify raw logs
 
-I also requested my extended streaming history for 2025, and reran the same “raw vs. Wrapped”
+I also requested my extended streaming history for 2025,
+and reran the same “raw vs. Wrapped”
 comparison as in 2024.
+
+Here are the results:
 
 ![Spotify Wrapped vs Spotify Raw (2025)]({{ '/assets/spotvslast/spotvsspot25.png' | relative_url }})
 
-Here are the results:
+Here are the metrics:
 
 | metric                     | value    |
 | -------------------------- | -------: |
@@ -323,7 +326,10 @@ Here are the results:
 | RBO                        |    0.889 |
 | Composite score            | **0.75** |
 
-This is noticeably better than 2024 (composite score **0.63**), but it’s still not a perfect match.
+Somehow it is slightly worse than the comparison to Last.fm.
+Still, it is noticeably better than 2024 (which had composite score of **0.63**),
+
+I'm not gonna talk about the whole new "Musical Age" nonsense,
 
 ## Conclusion? Is there any?
 
