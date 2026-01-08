@@ -5,7 +5,7 @@ description: Comparing Spotify Wrapped to Last.fm using ranking metrics like Jac
 toc: true
 toc_sticky: true
 date: 2025-08-06
-last_modified_at: 2025-12-16
+last_modified_at: 2026-01-08
 collection: posts
 tags:
   - ranking metrics
@@ -303,7 +303,27 @@ There is still a gap between the two data sources, but this time Spotify’s lis
 This is real progress.
 Good for you, Spotify!
 
-*Note: I also requested the updated raw data from Spotify so I can repeat the “raw vs. Wrapped” comparison. Still waiting for a response.*
+### 2025 follow-up: Wrapped vs. Spotify raw logs
+
+I also requested my extended streaming history for 2025, and reran the same “raw vs. Wrapped”
+comparison as in 2024.
+
+![Spotify Wrapped vs Spotify Raw (2025)]({{ '/assets/spotvslast/spotvsspot25.png' | relative_url }})
+
+Here are the results:
+
+| metric                     | value    |
+| -------------------------- | -------: |
+| edit distance              |       88 |
+| edit distance (normalized) |    0.880 |
+| bubble-sort distance       |    0.152 |
+| Kendall Tau                |    0.697 |
+| Spearman correlation       |    0.857 |
+| Jaccard similarity         |    0.770 |
+| RBO                        |    0.889 |
+| Composite score            | **0.75** |
+
+This is noticeably better than 2024 (composite score **0.63**), but it’s still not a perfect match.
 
 ## Conclusion? Is there any?
 
