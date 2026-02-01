@@ -69,6 +69,9 @@ author:
         - label: "Mastodon"
           icon: "fab fa-fw fa-mastodon"
           url: "https://sigmoid.social/@menisadi"
+        - label: "Bluesky"
+          icon: "fab fa-fw fa-bluesky"
+          url: "https://bsky.app/profile/menisadi.bsky.social"
 
 lunr:
     search_within_pages: true
