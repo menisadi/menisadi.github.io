@@ -90,8 +90,8 @@ Therefore we add an extra month about once every 3 years,
 more precisely, 7 times every 19 years.
 
 Let's put the exact rule aside for a moment,
-and try to phrase the problem that Jewish intercalation is trying to solve:
-the Hebrew calendar tries to create a situation where cycles of the lunar month produce a solar year.
+and try to phrase the problem that Jewish intercalation is trying to solve.
+The Hebrew calendar tries to create a situation where cycles of the lunar month produce a solar year.
 So the question is: how many such lunar months do we need in a year?
 12, as noted, won't be enough, so we need, like the added day in the Gregorian calendar,
 to add “fractions of a year” by inserting a month from time to time.
@@ -107,7 +107,8 @@ The ratio between them is:
 $$12.36826592.$$
 
 The Jewish approximation, those 7 leap years (with extra month) in a 19-year cycle,
-also has some deviation, we'll touch on that later.
+resulting in in $$12 7/19$$ months (on average) year.
+This also has some deviation, we'll touch on that later.
 
 I want to claim here, in the name of my number theory lecturer, Prof. Ido Efrat,
 that the Jewish correction is optimal, while the Gregorian one is not.
@@ -122,9 +123,17 @@ There are several kinds of numbers.
 The simplest and most familiar are the *natural* numbers: 0, 1, 2, and so on.  
 Of course that isn't enough for many things in life, so humanity continued to invent (or discover) numbers.
 
-After adding negative numbers, we also added fractions. These are called the *rational* numbers. The meaning is not “reasonable and logical” numbers, but numbers that can be expressed as a ratio of two natural numbers, rational in the sense of *ratio*. This set includes one half, one third, 15 eighths, 60.6, and so on.
+After adding negative numbers, we also added fractions.
+These are called the *rational* numbers.
+The meaning is not “reasonable and logical” numbers,
+but numbers that can be expressed as a ratio of two natural numbers, rational in the sense of *ratio*.
+This set includes one half, one third, 15 eighths, 60.6, and so on.
 
-As expected, the next ones are the *irrationals*: numbers that cannot be expressed as a ratio of two natural numbers. Famous examples are numbers like $\sqrt{2}$ or $\pi$, the ratio between a circle's circumference and its diameter. There are infinitely many others, but I hope the idea is familiar.
+As expected, the next ones are the *irrationals*:
+numbers that cannot be expressed as a ratio of two natural numbers.
+Famous examples are numbers like $\sqrt{2}$ or $\pi$,
+the ratio between a circle's circumference and its diameter.
+There are infinitely many others, but I hope the idea is familiar.
 
 ### Diophantine approximations
 
