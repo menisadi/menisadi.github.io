@@ -121,12 +121,14 @@ of background and a reminder from the world of numbers.
 
 There are several kinds of numbers.
 The simplest and most familiar are the *natural* numbers: 0, 1, 2, and so on.  
-Of course that isn't enough for many things in life, so humanity continued to invent (or discover) numbers.
+Of course that isn't enough for many things in life,
+so humanity continued to invent (or discover) numbers.
 
 After adding negative numbers, we also added fractions.
 These are called the *rational* numbers.
 The meaning is not “reasonable and logical” numbers,
-but numbers that can be expressed as a ratio of two natural numbers, rational in the sense of *ratio*.
+but numbers that can be expressed as a ratio of two natural numbers,
+rational in the sense of *ratio*.
 This set includes one half, one third, 15 eighths, 60.6, and so on.
 
 As expected, the next ones are the *irrationals*:
@@ -138,26 +140,47 @@ There are infinitely many others, but I hope the idea is familiar.
 ### Diophantine approximations
 
 But here we run into a technical problem.  
-These irrational numbers, how do we deal with them in reality? If we want to compute a circle's circumference from its radius, how do we work with that?
+These irrational numbers, how do we deal with them in reality?
+If we want to compute a circle's circumference from its radius, how do we work with that?
 
-The obvious answer is that we don't care that $\pi$ is infinite and can't be written as a fraction; an approximation of $\pi$ is enough. The Sages, as is well known, treated $\pi$ simply as 3, good enough for the overwhelming majority of everyday needs. If we need a bit more precision, we can go further and use 3.14.
+The obvious answer is that we don't care that $\pi$ is infinite and can't be written as a fraction,
+an approximation of $\pi$ is enough.
+The Sages, as is well known, treated $\pi$ simply as 3.
+This is indeed good enough for the overwhelming majority of everyday needs.
+If we need a bit more precision, we can go further and use 3.14.
 
-But how do we get such a number? How do we approximate an irrational number using fractions?  
-This kind of approximation is called a *Diophantine approximation*. It already occupied the Greeks, who tried to compute this ratio that we now call $\pi$ using various geometric methods. In fact it's a more general problem: how to approximate any number using simple fractions.
+But how do we get such an approximation?
+How do we approximate an irrational number using fractions?  
+This kind of approximation is called a *Diophantine approximation*.
+It already troubled the Greeks,
+who tried to compute this ratio that we now call $\pi$ using various geometric methods.
+In fact it's a more general problem: how to approximate any number using simple fractions.
 
-The most natural approach, at least for a modern person who thinks in decimals, is just to cut off the digits somewhere. So instead of $3.141592\ldots$ we stop after the 4, and we get the famous 3.14, or in simple fractional language: 3 and 14 hundredths.
+The most natural approach, at least for a modern person who thinks in decimals,
+is just to "cut off" the digits somewhere.
+So instead of $3.141592\ldots$ we stop after the 4,
+and we get the famous 3.14, or in simple fractional language:
+$$3 + \frac{14}{100}$$.
 
-At this point I want us to notice that the denominator is 100. I point this out to highlight that we can actually be “more efficient”: instead of 3 and 14 hundredths we can take the approximation 3 and one seventh, i.e., about 3.1428.
+At this point I want us to notice that the denominator is 100.
+I point this out to highlight that we can actually be “more efficient”:
+instead of 3 and 14 hundredths we can take the approximation
+$3 + \frac{1}{7}$, i.e., about 3.1428.
 
 Why do I say this approximation, the one the Greeks found, is better?  
-Because on the one hand it is at least as close (in fact closer: its gap from $\pi$ is smaller than that of 3.14), and moreover it uses a smaller denominator, i.e., it is a less “complicated” fraction. Think of the Greeks: to compute fractions they sometimes really had to divide physical things in the world. Dividing something into 7 is much easier than working with hundredths.
+Because on the one hand it is at least as close
+(in fact closer: its gap from $\pi$ is smaller than that of 3.14),
+and moreover it uses a smaller denominator, i.e., it is a less “complicated” fraction.
+Think of the Greeks: to compute fractions they sometimes really had to divide physical things in the world.
+Dividing something into 7 is much easier than working with hundredths.
 
-This raises the question: how do we find an approximation that is as “efficient” as possible, balancing the denominator size (the “complexity” of the fraction) against the accuracy it gives us?
+This raises the question: how do we find an approximation that is as “efficient” as possible,
+balancing the denominator size (the “complexity” of the fraction) against the accuracy it gives us?
 
 ### Continued fractions
 
 #### Meeting the monster
-
+<!-- Reviewed up to this point -->
 The solution, as it turned out a few hundred years later, lies in a strange creature called a *continued fraction*.  
 A regular fraction is familiar: $\tfrac12$, $\tfrac59$, and so on. A continued fraction is created when, in the denominator (the bottom), we insert a number that itself has a denominator with another fraction, and so on. Examples appear in Sources 5 and 6:
 
