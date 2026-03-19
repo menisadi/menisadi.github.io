@@ -180,9 +180,12 @@ balancing the denominator size (the “complexity” of the fraction) against th
 ### Continued fractions
 
 #### Meeting the monster
-<!-- Reviewed up to this point -->
-The solution, as it turned out a few hundred years later, lies in a strange creature called a *continued fraction*.  
-A regular fraction is familiar: $\tfrac12$, $\tfrac59$, and so on. A continued fraction is created when, in the denominator (the bottom), we insert a number that itself has a denominator with another fraction, and so on. Examples appear in Sources 5 and 6:
+The solution, as it turned out a few hundred years later,
+lies in a strange creature called a *continued fraction*.  
+A regular fraction is familiar: $\tfrac12$, $\tfrac59$, and so on.
+A continued fraction is created when, in the denominator,
+we insert a number that itself has a denominator with another fraction, and so on.
+For example:
 
 $$
 1 + \frac{1}{1 + \frac{1}{1+1}}
@@ -194,6 +197,7 @@ $$
 1 + \frac{1}{2 + \frac{1}{3 + \frac{1}{4}}}.
 $$
 
+<!-- Reviewed up to this point -->
 You can of course convert each of these into an ordinary fraction by a rather boring bottom-up arithmetic process, like the one shown in Source 7. For example:
 
 $$
