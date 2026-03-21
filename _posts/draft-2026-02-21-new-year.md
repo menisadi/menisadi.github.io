@@ -197,8 +197,8 @@ $$
 1 + \frac{1}{2 + \frac{1}{3 + \frac{1}{4}}}.
 $$
 
-<!-- Reviewed up to this point -->
-You can of course convert each of these into an ordinary fraction by a rather boring bottom-up arithmetic process, like the one shown in Source 7. For example:
+You can of course convert each of these into an ordinary fraction by a rather boring bottom-up arithmetic process,
+like for example:
 
 $$
 1 + \frac{1}{2 + \frac{1}{3 + \frac{1}{4}}}
@@ -209,37 +209,47 @@ $$
 = \frac{43}{30}.
 $$
 
-So at this stage it's not completely clear why this is good, it's just complicated and takes up more space.
+So at this stage it's not completely clear why new form is good,
+it's just complicated and takes up more space, no?
 
-The topic becomes interesting when we ask the question that a good mathematician asks almost every time they meet a new concept: “I wonder what happens if we continue this to infinity.”
+The topic becomes interesting when we ask the question that a good mathematician asks almost every time they meet a new concept:
+“I wonder what happens if we continue this to infinity.”
 
-Let's take a simple example that uses only the digit 1 (Source 8):
+Let's take a simple example that uses only the digit 1 :
 
 $$
 1 + \frac{1}{1 + \frac{1}{1 + \frac{1}{1 + \cdots}}}.
 $$
 
-If we start from the top and each time “cut” the monster to look only at its beginning, then:
+If we start from the top and each time “cut” the "monster" to look only at its beginning, then:
 
 - In the first line we get simply $1$.
 - One step deeper gives $1 + \frac{1}{1+1} = \frac{3}{2} = 1.5$.
 - One more step gives $1 + \frac{1}{1 + \frac{1}{1+1}} = \frac{5}{3} = 1.6666\ldots$.
 - And continuing gives $\frac{8}{5} = 1.6$, and so on.
 
-We can keep deepening the fraction, each time extending it further. What we discover is that the numbers we get do not just scatter randomly; they converge closer and closer to a particular point, which in this case is:
+We can keep deepening the fraction, each time extending it further.
+What we discover is that the numbers we get do not just scatter randomly.
+They converge, closer and closer, to a particular point, which in this case is:
 
 $$1.61803398875\ldots$$
 
-For those who don't recognize it, this is the golden ratio, a very interesting number that appears in many places in nature and in mathematics.
+For those who don't recognize it, this is the _golden ratio_,
+a very interesting number that appears in many places in nature and in mathematics.
 
 #### Why this is useful
 
 Okay, so it can be aesthetic. Still doesn't really justify the mess.
 
-But continued fractions give us another way to represent rational numbers, and more than that: another way to represent approximations of numbers, a different way to “round” a number by “cutting” the representation. Instead of truncating a decimal expansion after some digits, we truncate the inverted tower of a fraction inside a fraction.
+The importand insight is that continued fractions give us another way to represent rational numbers,
+and more than that: another way to represent approximations of numbers,
+a different way to “round” a number by “cutting” the representation.
+Instead of truncating a decimal expansion after some digits,
+we truncate the "inverted tower" of a fraction inside a fraction.
 
-For example (Source 10), if we look at the continued-fraction representation of $\pi$:
+For example, if we look at the continued-fraction representation of $\pi$:
 
+<!-- Reviewed up to this point -->
 $$
 \pi = 3 + \frac{1}{7 + \frac{1}{15 + \frac{1}{1 + \frac{1}{292 + \cdots}}}}.
 $$
