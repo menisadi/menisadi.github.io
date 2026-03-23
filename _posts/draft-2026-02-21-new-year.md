@@ -160,7 +160,8 @@ The most natural approach, at least for a modern person who thinks in decimals,
 is just to "cut off" the digits somewhere.
 So instead of $3.141592\ldots$ we stop after the 4,
 and we get the famous 3.14, or in simple fractional language:
-$$3 + \frac{14}{100}$$.
+
+$$3 + \frac{14}{100}$$
 
 At this point I want us to notice that the denominator is 100.
 I point this out to highlight that we can actually be “more efficient”:
