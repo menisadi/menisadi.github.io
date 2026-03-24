@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "The Chess Capital of the World — A Basic Stats Lesson"
+title: "The Chess Capital of the World - A Basic Stats Lesson"
 toc: true
 toc_sticky: true
 collection: posts
@@ -166,7 +166,7 @@ Let's take for example the question "Which countries have the highest GDP?"[^1]
 
 *Source: [World Development Indicators, World Bank, July 2023](https://databankfiles.worldbank.org/public/ddpext_download/GDP.pdf)*
 
-[^1]: The same pattern appears in many other statistics — total number of internet users, road traffic deaths, CO2 emissions — they all tend to look suspiciously like a list of the most populated countries.
+[^1]: The same pattern appears in many other statistics - total number of internet users, road traffic deaths, CO2 emissions - they all tend to look suspiciously like a list of the most populated countries.
 
 Probably no one will be surprised by the list. In fact, a quick glance will reveal that the list is suspiciously reminiscent of the list of "the most populated countries in the world".
 
