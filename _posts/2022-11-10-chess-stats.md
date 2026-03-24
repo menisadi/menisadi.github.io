@@ -41,7 +41,8 @@ Before that, a few clarifications:
 2. Different claims can be made regarding the non-official popularity of chess in different countries (sources) but I have no data or idea how to find such data. That's why I rely again on what is available, which is the list of all the players registered in FIDE. If anyone has other ideas I would love to hear them.
 3. I am using data from a few months ago for the simple reason that since the outbreak of the war in Ukraine, FIDE has imposed a boycott on Russia and for that reason many players are not registered as Russian but as stateless (and play under the FIDE flag).
 
-## the data
+## The data
+
 In FIDE registered, as of August 2022, 393377 players.
 The full FIDE player list looks like this
 ![FIDE table]({{ '/assets/chess/fide_table.png' | relative_url }})
