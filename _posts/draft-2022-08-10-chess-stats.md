@@ -44,7 +44,7 @@ Before that, a few clarifications:
 ## the data
 In FIDE registered, as of August 2022, 393377 players.
 The full FIDE player list looks like this
-![FIDE table](../Figures/fide_table.png)
+![FIDE table]({{ '/assets/chess/fide_table.png' | relative_url }})
 
 ### Making the data usable
 
@@ -141,7 +141,7 @@ No surprises here - Russia at the top, US right after and the rising star India 
 A little side note: I plan to write a separate post about women in chess, so I'll keep the stats related to this topic for that future post.
 
 Now, at last, we will present the tables nicely on a map:
-![Raw count maps](../Figures/raw_maps.png)
+![Raw count maps]({{ '/assets/chess/raw_maps.png' | relative_url }})
 As you can see very nicely, Russia is so dominant that it skews the scale. India is also present here, although still behind. It seems that the concepts we mentioned at the beginning are indeed anchored in the data.
 
 But this analysis overshadows a very important issue in data analysis and presentation: the great importance of data normalization.
@@ -194,7 +194,7 @@ And it is very true, the correlation here between the number of residents and th
 So, if you agree with me that the correct measure is not "the number of chess players" but "the number of chess players in relation to the population" the resulting picture is very different and much more interesting.
 
 Let's go back to data. Now we will divide all our data by the number of inhabitants of each country (and multiply by 10000 so that our own scale is more convenient) and we will get the following table:
-![Players per capita with Iceland](../Figures/players_per_capita_with_iceland.png)
+![Players per capita with Iceland]({{ '/assets/chess/players_per_capita_with_iceland.png' | relative_url }})
 
 Well, I'm sorry Iceland, but you are completely distorting the scale, so we will exclude you from the discussion (and any other country smaller than Iceland).
 
@@ -214,7 +214,7 @@ Well, I'm sorry Iceland, but you are completely distorting the scale, so we will
 As you can see the picture here is completely different. Suddenly the big countries disappeared and other countries emerged in their place, mainly Eastern European countries but not only. Shout out to Croatian Agadmator for being the most famous representative of Croatian chess (interested? [Here is an article about chess in Croatia](https://en.chessbase.com/post/che-in-croatia)). Apart from Croatia, the list also stars Spain, known for their strong team (Alexei Shirov, David Antón Guijarro), Hungary, home of Judit Polgar and Richard Rapport, and of course - Norway, whose leading chess player needs no introduction [![Magnus](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/World_Chess_Championship_2021%2C_game_07%2C_Magnus_Carlsen_%28cropped%29.jpg/220px-World_Chess_Championship_2021%2C_game_07%2C_Magnus_Carlsen_%28cropped%29.jpg)](https://commons.wikimedia.org/wiki/File:World_Chess_Championship_2021,_game_07,_Magnus_Carlsen_%28cropped%29.jpg).
 
 Let's zoom out. Here is an illustration of what is happening all over the world
-![Players per capita map](../Figures/players_per_capita_map.png)
+![Players per capita map]({{ '/assets/chess/players_per_capita_map.png' | relative_url }})
 
 You are welcome to scroll up a second and compare to the corresponding map before normalization. As you can see Russia has deteriorated badly not to mention the USA which is placed below almost every European country and even some countries from South America and Asia. In India the story is similar, but we will return to it later. In China, if you were wondering, the most popular competitive board game is Go, so the result there is not very surprising.
 Let's quickly make the same correction to our other metrics as well:
@@ -265,7 +265,7 @@ For a reason that is not clear to me, the number of GMs in Montenegro and Serbia
 If in the general ranking of players Russia has fallen a little lower, in the ranking of GMs its situation is even worse.
 
 To summarize the discussion, I decided to combine two parameters into one plot to also examine the popularity (in the form of the overall number of players) at the same time as the degree of "success" (to be measured for that matter by the number of GMs):
-![GMs vs Players scatter](../Figures/gms_vs_players_scatter.png)
+![GMs vs Players scatter]({{ '/assets/chess/gms_vs_players_scatter.png' | relative_url }})
 
 ### Final note - India
 
