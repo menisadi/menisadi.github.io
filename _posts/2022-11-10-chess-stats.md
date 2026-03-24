@@ -212,7 +212,9 @@ Well, I'm sorry Iceland, but you are completely distorting the scale, so we will
 | Serbia         | 65.283596        |
 | Spain          | 59.827725        |
 
-As you can see the picture here is completely different. Suddenly the big countries disappeared and other countries emerged in their place, mainly Eastern European countries but not only. Shout out to Croatian Agadmator for being the most famous representative of Croatian chess (interested? [Here is an article about chess in Croatia](https://en.chessbase.com/post/che-in-croatia)). Apart from Croatia, the list also stars Spain, known for their strong team (Alexei Shirov, David Antón Guijarro), Hungary, home of Judit Polgar and Richard Rapport, and of course - Norway, whose leading chess player [needs no introduction](https://commons.wikimedia.org/wiki/File:World_Chess_Championship_2021,_game_07,_Magnus_Carlsen_%28cropped%29.jpg).
+As you can see the picture here is completely different. Suddenly the big countries disappeared and other countries emerged in their place, mainly Eastern European countries but not only. Shout out to Croatian Agadmator for being the most famous representative of Croatian chess [^2]. Apart from Croatia, the list also stars Spain, known for their strong team (Alexei Shirov, David Antón Guijarro), Hungary, home of Judit Polgar and Richard Rapport, and of course - Norway, whose leading chess player [needs no introduction](https://commons.wikimedia.org/wiki/File:World_Chess_Championship_2021,_game_07,_Magnus_Carlsen_%28cropped%29.jpg).
+
+[^2]: interested? [Here is an article about chess in Croatia](https://en.chessbase.com/post/che-in-croatia)
 
 Let's zoom out. Here is an illustration of what is happening all over the world
 ![Players per capita map]({{ '/assets/chess/players_per_capita_map.png' | relative_url }})
