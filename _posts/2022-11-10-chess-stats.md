@@ -15,30 +15,30 @@ tags:
 
 The world of chess has experienced an increase in popularity in recent years.
 Since the broadcast of the "Queen's Gambit" series on Netflix, this ancient game has been gaining momentum online, a momentum that received an even greater boost during the COVID-19 pandemic when many remained locked in their homes and sought activities to engage with online.
-Chess provides a perfect solution as it can be played online with people from all over the world, offering an escape from the monotony of lock-down and providing a mental challenge to players.  
+Chess provides a perfect solution as it can be played online with people from all over the world, offering an escape from the monotony of lockdown and providing a mental challenge to players.  
 Additionally, the rise of online streaming platforms such as Twitch has made it possible for professional chess players to stream their games and provide commentary, further increasing the visibility of the game and inspiring a new generation of chess enthusiasts.
 As a result, the popularity of chess continues to grow, with tournaments attracting large audiences and players of all skill levels coming together to enjoy this timeless game.
-According to a [report](https://www.chess.com/article/view/chesscom-reaches-100-million-members) by the site chess.com, the world's largest site for online chess, the number of active users on the site reached 100 million users, an 238% increase from what it had two and a half years ago.
+According to a [report](https://www.chess.com/article/view/chesscom-reaches-100-million-members) by the site chess.com, the world's largest site for online chess, the number of active users on the site reached 100 million users, a 238% increase from what it had two and a half years ago.
 
 Anyone interested in the field notices quite quickly the prominent presence of top players of Russian origin.
-In fact, for almost 60 years, starting from the 1940s, with the rise of Mikhail Botvinnik, until the beginning of the 2000s at the end of Garry Kasparov's regime, the title of world champion was held only by players of Russian (or Soviet Union) origin, with the exception of a small break in the form of the phenomenal figure of the American Bobby Fisher.  
+In fact, for almost 60 years, starting from the 1940s, with the rise of Mikhail Botvinnik, until the beginning of the 2000s at the end of Garry Kasparov's regime, the title of world champion was held only by players of Russian (or Soviet Union) origin, with the exception of a small break in the form of the phenomenal figure of the American Bobby Fischer.  
 Since the beginning of the 2000s, the title has migrated to different countries such as Ukraine and Norway, but still at the top you can find many players from the red country.
-Names like Ian Nepomniachtchi, Sergey Karjakin, Danil Dubov and Alexander Grishchuk populate the most prestigious tournaments and produce a Russian-made team that is very hard to match.
+Names like Ian Nepomniachtchi, Sergey Karjakin, Daniil Dubov and Alexander Grishchuk populate the most prestigious tournaments and produce a Russian-made team that is very hard to match.
 All this without mentioning the fact that also in other countries, such as the United States, you can find many [Russian](https://www.youtube.com/watch?v=kGpA8jr_ZMg)-[speaking](https://www.youtube.com/watch?v=0wqAoopCe7Q) [players](https://www.youtube.com/watch?v=YqJ5u5cOprM).
-All these led to the perception that the world chess capital is Russia.
+All this led to the perception that the world chess capital is Russia.
 Many speculations have been made over the years regarding the reason and Russian education is [often](https://www.chess.com/article/view/the-biggest-secret-of-the-soviet-chess-scool) [mentioned](https://en.wikipedia.org/wiki/Soviet_chess_school) as one of the main factors that make up the great popularity of the game of kings in Russia.
 
 Another country that has made headlines in recent years in the world of chess is India.
 A country that was not considered a prominent source of great chess players over the years, has been producing more and more excellent players in recent years.
-Starting with Anand, the world champion for the year 2007-2012, and up to the younger generation in the form of such as Gukesh, Sarin, Erigaisi and more.
+Starting with Anand, the world champion for the years 2007-2012, and up to the younger generation with players such as Gukesh, Sarin, Erigaisi and more.
 India is emerging as a rising power in the world of chess and [many](https://www.espn.com/chess/story/_/id/29501703/66-gms-counting-story-india-chess-surge) [articles](https://www.chessbase.in/news/The-rise-of-chess-in-India) have been written in an attempt to characterize the roots of this dramatic rise.
 
 But, I want to be a little annoying and challenge these two perceptions.
 To that end, let's take a look at some data.
 
 Before that, a few clarifications:
-1. The data I use is the full FIDE table of players. The data in this database includes national affiliation only and is not divided into regions within countries. I understand that there is logic in testing at a higher resolution and that certain cities or certain regions of the country can stand out in such an analysis and give a more accurate picture. I don't have this data, so I'll be content, for the sake of exercise and curiosity, with what is available.
-2. Different claims can be made regarding the non-official popularity of chess in different countries but I have no data or idea how to find such data. That's why I rely again on what is available, which is the list of all the players registered in FIDE. If anyone has other ideas I would love to hear them.
+1. The data I use is the full FIDE table of players. The data in this database includes national affiliation only and is not divided into regions within countries. I understand that there is logic in testing at a higher resolution and that certain cities or certain regions of the country can stand out in such an analysis and give a more accurate picture. I don't have this data, so I'll be content, for the sake of the exercise and curiosity, with what is available.
+2. Different claims can be made regarding the non-official popularity of chess in different countries but I have no data or idea how to find such data. That's why I rely again on what is available, which is the list of all the players registered in FIDE. If anyone has other ideas, I would love to hear them.
 3. I am using data from a few months ago for the simple reason that since the outbreak of the war in Ukraine, FIDE has imposed a boycott on Russia and for that reason many players are not registered as Russian but as stateless (and play under the FIDE flag).
 
 ## The data
@@ -54,7 +54,7 @@ One of the main obstacles of using this table is that FIDE uses non-conventional
 This is a problem because most of population data (which we will be using later) uses more standard list of countries. So we had to merge those provinces (sorry Jersey).
 
 ```python
-nieche_countries_dict = {
+niche_countries_dict = {
     'Bosnia & Herzegovina' : 'Bosnia and Herzegovina',
     'England' : 'United Kingdom',
     'Wales' : 'United Kingdom',
@@ -107,7 +107,7 @@ Which yields
 Unsurprisingly, Russia is at the top and India in second place.
 For those who are wondering, in the last place is Chad where a single player, named Mahamat Hachim Bachar, is listed.
 
-Another index that is interesting to check is how many Grand-Masters are registered in each country. A quick check yields the following table:
+Another index that is interesting to check is how many Grandmasters are registered in each country. A quick check yields the following table:
 
 | Country                  | GMs  |
 | ------------------------ | ---- |
