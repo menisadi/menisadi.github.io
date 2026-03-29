@@ -13,12 +13,16 @@ tags:
   - FIDE
 ---
 
+## The Rise of Online Chess
+
 The world of chess has experienced an increase in popularity in recent years.
 Since the broadcast of the "Queen's Gambit" series on Netflix, this ancient game has been gaining momentum online, a momentum that received an even greater boost during the COVID-19 pandemic when many remained locked in their homes and sought activities to engage with online.
 Chess provides a perfect solution as it can be played online with people from all over the world, offering an escape from the monotony of lockdown and providing a mental challenge to players.  
 Additionally, the rise of online streaming platforms such as Twitch has made it possible for professional chess players to stream their games and provide commentary, further increasing the visibility of the game and inspiring a new generation of chess enthusiasts.
 As a result, the popularity of chess continues to grow, with tournaments attracting large audiences and players of all skill levels coming together to enjoy this timeless game.
 According to a [report](https://www.chess.com/article/view/chesscom-reaches-100-million-members) by the site chess.com, the world's largest site for online chess, the number of active users on the site reached 100 million users, a 238% increase from what it had two and a half years ago.
+
+## The Usual Suspects
 
 Anyone interested in the field notices quite quickly the prominent presence of top players of Russian origin.
 In fact, for almost 60 years, starting from the 1940s, with the rise of Mikhail Botvinnik, until the beginning of the 2000s at the end of Garry Kasparov's regime, the title of world champion was held only by players of Russian (or Soviet Union) origin, with the exception of a small break in the form of the phenomenal figure of the American Bobby Fischer.  
@@ -149,6 +153,8 @@ But this analysis overshadows a very important issue in data analysis and presen
 
 ## on the importance of normalization
 
+### A little GDP Analogy
+
 Let's take for example the question "Which countries have the highest GDP?"[^1]
 
 | Ranking | Country            | GDP (millions USD) |
@@ -193,6 +199,8 @@ This phenomenon has appeared in many places, although usually in a less exaggera
 With this rather trivial insight, let's return to the question of "how many people play chess in each country" Would anyone be surprised that there are more chess players in Russia, a country of over 140 million people, than in (relatively) small Norway? Well that may be obvious, I will be told now, but there are still more players in Russia than, say, China or the USA!
 And it is very true, the correlation here between the number of residents and the number of players in the country is not perfect and not close to it, but it cannot be ignored. As in the comparison between countries, one does not look at the GDP but at the GDP per capita because it is clear that there is almost no meaning in comparing the absolute numbers between countries that differ radically in population size.  
 So, if you agree with me that the correct measure is not "the number of chess players" but "the number of chess players in relation to the population" the resulting picture is very different and much more interesting.
+
+### The Per-Capita Picture
 
 Let's go back to data. Now we will divide all our data by the number of inhabitants of each country (and multiply by 10000 so that our own scale is more convenient) and we will get the following table:
 ![Players per capita with Iceland]({{ '/assets/chess/players_per_capita_with_iceland.png' | relative_url }})
