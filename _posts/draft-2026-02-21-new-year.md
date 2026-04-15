@@ -13,15 +13,14 @@ tags:
   - lecture
 ---
 
-
 In a few days, the year 2025 will end.  
 I want to use the opportunity (or the excuse)
 to talk about a mathematically interesting difference between the Gregorian way of intercalation and the Jewish one.
 In a certain sense the problems are similar in nature, but in practice they are quite different.
 
-## Background: how we compute a year
+## Background: How We Compute a Year
 
-### Gregorian intercalation (leap days)
+### Gregorian Intercalation (Leap Days)
 
 Let's start with a quick reminder of how the Gregorian calendar handles leap years.  
 The year, by the definition used in the Western world today, is a solar year,
@@ -29,9 +28,8 @@ i.e., it is defined by the number of days it takes the Earth to orbit the Sun.
 In a certain sense, this is the timescale that dictates the agricultural cycle and the seasons,
 and therefore it's a natural periodicity to align ourselves with.
 
-In fact, the year was not defined by the Earth's motion per se, but by the seasonal year:
-how long passes until the Sun returns to the same position,
-if you like, the number of days from one day–night equality (an equinox) to the next.
+In fact, the year was not defined by the Earth's motion per se, but by the seasonal year: how long it takes until the Sun returns to the same position.
+In other words, the number of days from one day–night equality (an equinox) to the next.
 
 Such a year, as everyone knows, lasts 365 days.  
 But of course, not *exactly* 365 days.
@@ -74,10 +72,10 @@ In terms of an average year length, the Gregorian rule is:
 
 $$365 + \frac{97}{400} = 365.2425.$$
 
-### Jewish intercalation (leap months)
+### Jewish Intercalation (Leap Months)
 
 In Judaism the story is a bit different.  
-We have two yearly cycles, solar and lunar.
+We have two yearly cycles: solar and lunar.
 The solar year, as mentioned, is about 365 and a quarter days.
 The lunar year, 12 cycles of the Moon around us, adds up to roughly 354 days.
 
@@ -86,7 +84,7 @@ which could accumulate to roughly a month every 3 years
 and push Passover out of the spring season.
 As the Bible explicitly name Passover's month "the spring month",
 Judaism aim to keep it so.
-Therefore we add an extra month about once every 3 years,
+Therefore, we add an extra month about once every 3 years,
 more precisely, 7 times every 19 years.
 
 Let's put the exact rule aside for a moment,
@@ -107,7 +105,7 @@ The ratio between them is:
 $$12.36826592.$$
 
 The Jewish approximation, those 7 leap years (with extra month) in a 19-year cycle,
-resulting in in $$12 7/19$$ months (on average) year.
+resulting in $$12 7/19$$ months (on average) year.
 This also has some deviation, we'll touch on that later.
 
 I want to claim here, in the name of my number theory lecturer, Prof. Ido Efrat,
@@ -115,9 +113,9 @@ that the Jewish correction is optimal, while the Gregorian one is not.
 To explain what that means, we need a bit, really just a bit,
 of background and a reminder from the world of numbers.
 
-## A bit of number theory
+## A Bit of Number Theory
 
-### Types of numbers
+### Types of Numbers
 
 There are several kinds of numbers.
 The simplest and most familiar are the *natural* numbers: 0, 1, 2, and so on.  
@@ -137,7 +135,7 @@ Famous examples are numbers like $\sqrt{2}$ or $\pi$,
 the ratio between a circle's circumference and its diameter.
 There are infinitely many others, but I hope the idea is familiar.
 
-### Diophantine approximations
+### Diophantine Approximations
 
 But here we run into a technical problem.  
 These irrational numbers, how do we deal with them in reality?
@@ -178,9 +176,10 @@ Dividing something into 7 is much easier than working with hundredths.
 This raises the question: how do we find an approximation that is as “efficient” as possible,
 balancing the denominator size (the “complexity” of the fraction) against the accuracy it gives us?
 
-### Continued fractions
+### Continued Fractions
 
-#### Meeting the monster
+#### Meeting the Monster
+
 The solution, as it turned out a few hundred years later,
 lies in a strange creature called a *continued fraction*.  
 A regular fraction is familiar: $\tfrac12$, $\tfrac59$, and so on.
@@ -231,18 +230,18 @@ If we start from the top and each time “cut” the "monster" to look only at i
 
 We can keep deepening the fraction, each time extending it further.
 What we discover is that the numbers we get do not just scatter randomly.
-They converge, closer and closer, to a particular point, which in this case is:
+They converge closer and closer, to a particular point, which in this case is:
 
 $$1.61803398875\ldots$$
 
-For those who don't recognize it, this is the _golden ratio_,
+For those who don't recognize it, this is the *golden ratio*,
 a very interesting number that appears in many places in nature and in mathematics.
 
-#### Why this is useful
+#### Why This Is Useful
 
 Okay, so it can be aesthetic. Still doesn't really justify the mess.
 
-The importand insight is that continued fractions give us another way to represent rational numbers,
+The important insight is that continued fractions give us another way to represent rational numbers,
 and more than that: another way to represent approximations of numbers,
 a different way to “round” a number by “cutting” the representation.
 Instead of truncating a decimal expansion after some digits,
@@ -271,9 +270,9 @@ Here comes the interesting part: it turns out that this way of generating approx
 
 So, to summarize: if we want to approximate a number optimally, we can convert it to a continued fraction and “cut” it somewhere.
 
-## Back to intercalation
+## Back to Intercalation
 
-### The civil calendar could have done better
+### The Civil Calendar Could Have Done Better
 
 Reminder: the designers of the civil (Julian/Gregorian) calendar needed to find an approximation to the number of days in a solar year, the number in Source 1.  
 The approximation used in practice, after the Gregorian correction, is:
@@ -306,9 +305,9 @@ You can arrange this approximation very easily: intercalate every 4 years, as we
 
 So instead of the current system (for those who don't remember, it's detailed in Source 2) that includes three “levels” of rules, we get a shorter and more accurate system. How much more accurate? More than 100×. With such a calendar we would get a drift of one day only after about 400,000 years.
 
-So while many people like to say the civil calendar is very accurate, in a certain sense it is what we would call *sub-optimal*.
+So while many people like to say the civil calendar is very accurate, in a certain sense it is what we would call *suboptimal*.
 
-### The Jews are the best
+### The Jews Are the Best
 
 Now let's move to the Jewish calendar.  
 Recall that in the Jewish case the ratio we are trying to approximate, the number of lunar months in a solar year, is the number in Source 4:
@@ -354,4 +353,3 @@ Here, the continued-fraction development shows that this is the optimal cycle: a
 Thanks to everyone who managed to hang on and listen until here.
 
 Shabbat shalom.
-
