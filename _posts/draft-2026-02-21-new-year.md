@@ -249,14 +249,14 @@ we truncate the "inverted tower" of a fraction inside a fraction.
 
 For example, if we look at the continued-fraction representation of $\pi$:
 
-<!-- Reviewed up to this point -->
 $$
 \pi = 3 + \frac{1}{7 + \frac{1}{15 + \frac{1}{1 + \frac{1}{292 + \cdots}}}}.
 $$
 
-If we cut it very early, we get just $3$.  
-If we add the next part, we get $3 + \frac{1}{7}$.  
-If we continue one more step, we get a bit of addition and division and obtain
+If we cut it very early, we get after the firs digit, we get simply $3$.  
+If we add the next "part", we get $3 + \frac{1}{7}$.  
+Note, that with this representation, when we "cut off" the representation after the second "level" we get the Greek approximation, once we mentioned is better than the famous $3.14$.
+If we continue one more step, we get, after a bit of arithmetic:
 
 $$3 + \frac{1}{7 + \frac{1}{15}} = 3 + \frac{15}{106} = \frac{333}{106} \approx 3.141509.$$
 
@@ -264,9 +264,11 @@ And if we add one more step:
 
 $$3 + \frac{1}{7 + \frac{1}{15 + 1}} = 3 + \frac{16}{113} = \frac{355}{113} \approx 3.1415929.$$
 
-At each stage we get a perfectly rational fraction that gives an increasingly better approximation to $\pi$.
+At each stage we get a rational fraction that gives an increasingly better approximation to $\pi$.
 
-Here comes the interesting part: it turns out that this way of generating approximations is the best that can be. In other words, an approximation produced by truncating a continued fraction cannot be improved without increasing the denominator. As we said, increasing the denominator is essentially increasing the “complexity” of the fraction.
+Here comes the interesting part: it turns out that this way of generating approximations is the best that can be.
+In other words, an approximation produced by truncating a continued fraction cannot be improved without increasing the denominator.
+As we said, increasing the denominator is essentially increasing the “complexity” of the fraction.
 
 So, to summarize: if we want to approximate a number optimally, we can convert it to a continued fraction and “cut” it somewhere.
 
@@ -277,11 +279,15 @@ So, to summarize: if we want to approximate a number optimally, we can convert i
 Reminder: the designers of the civil (Julian/Gregorian) calendar needed to find an approximation to the number of days in a solar year, the number in Source 1.  
 The approximation used in practice, after the Gregorian correction, is:
 
-$$365 + \frac{97}{400}.$$
+$$365 + \frac{97}{400} = 365.242.$$
 
 That's not bad. But let's enlist our new friends: continued fractions.
 
-A continued fraction equal to the target number appears in Source 11.  
+A continued fraction equal to the target number is:
+$$
+365 + \frac{1}{4 + \frac{1}{7 + \frac{1}{3 + \frac{1}{24 + \frac{1}{6 + \frac{1}{2 + \cdots}}}}}}.
+$$
+
 If we truncate it after one step we get the Julian approximation:
 
 $$365 + \frac{1}{4} = 365.25.$$
@@ -294,18 +300,28 @@ If we go another step, we get
 
 $$365 + \frac{8}{33}.$$
 
-Already at this stage we've obtained an approximation that is better than the current one by about 50%. But, you might say: a cycle of 8 leap years every 33 years is less memorable than the current system, so the small improvement isn't worth it. Fair enough.
+Already at this stage we've obtained an approximation that is better than the current one by about 50%.
+But, you might say: a cycle of 8 leap years every 33 years is less memorable than the current system,
+so the small improvement isn't worth it.
+Fair enough.
 
 Here is the interesting point: go one step further and we get
 
 $$365 + \frac{31}{128}.$$
 
 What's exciting about that?  
-You can arrange this approximation very easily: intercalate every 4 years, as we do now, but once every 128 years, skip one intercalation.
+You can arrange this approximation very easily:
+intercalate every 4 years, as we do now, but once every 128 years, skip one intercalation.
 
-So instead of the current system (for those who don't remember, it's detailed in Source 2) that includes three “levels” of rules, we get a shorter and more accurate system. How much more accurate? More than 100×. With such a calendar we would get a drift of one day only after about 400,000 years.
+So instead of the current system that includes three “levels” of rules,
+we get a shorter and more accurate system.
+How much more accurate?
+More than 100×.
+With such a calendar we would get a drift of one day only after about 400,000 years.
 
-So while many people like to say the civil calendar is very accurate, in a certain sense it is what we would call *suboptimal*.
+So while many people like to say the civil calendar is very accurate,
+in a certain sense it is what we would call *suboptimal*.
+<!-- Reviewed up to this point -->
 
 ### The Jews Are the Best
 
