@@ -254,7 +254,7 @@ $$
 \pi = 3 + \frac{1}{7 + \frac{1}{15 + \frac{1}{1 + \frac{1}{292 + \cdots}}}}.
 $$
 
-If we cut it very early — after the first digit — we get simply $3$.  
+If we cut it very early - after the first digit - we get simply $3$.  
 If we add the next "part", we get $3 + \frac{1}{7}$.  
 Note that with this representation, when we "cut off" the representation after the second "level", we get the Greek approximation, which we mentioned is better than the famous $3.14$.
 If we continue one more step, we get, after a bit of arithmetic:
@@ -267,8 +267,8 @@ $$3 + \frac{1}{7 + \frac{1}{15 + 1}} = 3 + \frac{16}{113} = \frac{355}{113} \app
 
 At each stage we get a rational fraction that gives an increasingly better approximation to $\pi$.
 
-Here comes the interesting part: it turns out that this way of generating approximations is the best that can be.
-In other words, an approximation produced by truncating a continued fraction cannot be improved without increasing the denominator.
+Here comes the interesting part: it turns out that fractions obtained this way, called convergents, are provably optimal.
+In other words - no fraction with a smaller or equal denominator comes closer to the target number.
 As we said, increasing the denominator is essentially increasing the “complexity” of the fraction.
 
 So, to summarize: if we want to approximate a number optimally, we can convert it to a continued fraction and “cut” it somewhere.
@@ -322,7 +322,6 @@ With such a calendar we would get a drift of one day only after about 400,000 ye
 
 So while many people like to say the civil calendar is very accurate,
 in a certain sense it is what we would call *suboptimal*.
-<!-- Reviewed up to this point -->
 
 ### The Jews Are the Best
 
