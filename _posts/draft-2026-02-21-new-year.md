@@ -181,7 +181,8 @@ balancing the denominator size (the “complexity” of the fraction) against th
 #### Meeting the Monster
 
 The solution, as it turned out a few hundred years later,
-lies in a strange creature called a *continued fraction*.  
+lies in a strange creature called a *continued fraction*.[^cf-notation]  
+[^cf-notation]: Continued fractions are often written compactly as $[a_0;\, a_1, a_2, a_3, \ldots]$, which saves space but hides the structure. I use the expanded tower notation throughout to keep the nested nature of the construction visible.
 A regular fraction is familiar: $\tfrac12$, $\tfrac59$, and so on.
 A continued fraction is created when, in the denominator,
 we insert a number that itself has a denominator with another fraction, and so on.
