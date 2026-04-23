@@ -4,6 +4,7 @@ title: "The Chess Capital of the World - A Basic Stats Lesson"
 toc: true
 toc_sticky: true
 collection: posts
+mathjax: true
 tags:
   - chess
   - visualization
@@ -41,6 +42,7 @@ But, I want to be a little annoying and challenge these two perceptions.
 To that end, let's take a look at some data.
 
 Before that, a few clarifications:
+
 1. The data I use is the full FIDE table of players. The data in this database includes national affiliation only and is not divided into regions within countries. I understand that there is logic in testing at a higher resolution and that certain cities or certain regions of the country can stand out in such an analysis and give a more accurate picture. I don't have this data, so I'll be content, for the sake of the exercise and curiosity, with what is available.
 2. Different claims can be made regarding the non-official popularity of chess in different countries but I have no data or idea how to find such data. That's why I rely again on what is available, which is the list of all the players registered in FIDE. If anyone has other ideas, I would love to hear them.
 3. I am using data from a few months ago for the simple reason that since the outbreak of the war in Ukraine, FIDE has imposed a boycott on Russia and for that reason many players are not registered as Russian but as stateless (and play under the FIDE flag).
