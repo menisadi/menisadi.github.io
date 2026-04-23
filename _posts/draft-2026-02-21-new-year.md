@@ -70,7 +70,7 @@ or one day every a bit more than 3200 years.
 
 In terms of an average year length, the Gregorian rule is:
 
-$$365 + \frac{97}{400} = 365.2425.$$
+$$365 \frac{97}{400} = 365.2425.$$
 
 ### Jewish Intercalation (Leap Months)
 
@@ -159,12 +159,12 @@ is just to "cut off" the digits somewhere.
 So instead of $3.141592\ldots$ we stop after the 4,
 and we get the famous 3.14, or in simple fractional language:
 
-$$3 + \frac{14}{100}$$
+$$3 \frac{14}{100}$$
 
 At this point I want us to notice that the denominator is 100.
 I point this out to highlight that we can actually be “more efficient”:
 instead of 3 and 14 hundredths we can take the approximation
-$3 + \frac{1}{7}$, i.e., about 3.1428.
+$3 \frac{1}{7}$, i.e., about 3.1428.
 
 Why do I say this approximation, the one the Greeks found, is better?  
 Because on the one hand it is at least as close
@@ -279,7 +279,7 @@ So, to summarize: if we want to approximate a number optimally, we can convert i
 Reminder: the designers of the civil (Julian/Gregorian) calendar needed to find an approximation to the number of days in a solar year, the number in Source 1.  
 The approximation used in practice, after the Gregorian correction, is:
 
-$$365 + \frac{97}{400} = 365.242.$$
+$$365 \frac{97}{400} = 365.242.$$
 
 That's not bad. But let's enlist our new friends: continued fractions.
 
@@ -290,15 +290,15 @@ $$
 
 If we truncate it after one step we get the Julian approximation:
 
-$$365 + \frac{1}{4} = 365.25.$$
+$$365 \frac{1}{4} = 365.25.$$
 
 If we go one more step we get
 
-$$365 + \frac{7}{29}.$$
+$$365 \frac{7}{29}.$$
 
 If we go another step, we get
 
-$$365 + \frac{8}{33}.$$
+$$365 \frac{8}{33}.$$
 
 Already at this stage we've obtained an approximation that is better than the current one by about 50%.
 But, you might say: a cycle of 8 leap years every 33 years is less memorable than the current system,
@@ -307,7 +307,7 @@ Fair enough.
 
 Here is the interesting point: go one step further and we get
 
-$$365 + \frac{31}{128}.$$
+$$365 \frac{31}{128}.$$
 
 What's exciting about that?  
 You can arrange this approximation very easily:
@@ -326,26 +326,42 @@ in a certain sense it is what we would call *suboptimal*.
 ### The Jews Are the Best
 
 Now let's move to the Jewish calendar.  
-Recall that in the Jewish case the ratio we are trying to approximate, the number of lunar months in a solar year, is the number in Source 4:
+Recall that in the Jewish case the ratio we are trying to approximate,
+the number of lunar months in a solar year, is:
 
 $$12.36826592.$$
 
-The continued-fraction representation of this number (Source 14) yields the following rapid sequence of approximations (Source 15): $12 + \tfrac{1}{2}$, $12 + \tfrac{1}{3}$, $12 + \tfrac{3}{8}$, $12 + \tfrac{4}{11}$.
+The continued-fraction representation of this number is:
 
-The last two already look pretty good, but in fact they would produce a full-day drift once every 5 and 7 years, respectively. Over two thousand years of exile, that would accumulate into a dramatic drift.
+$$
+12 + \frac{1}{2 + \frac{1}{1 + \frac{1}{2 + \frac{1}{1 + \frac{1}{1 + \frac{1}{17 + \frac{1}{2 + \dots }}}}}}}
+$$
+
+Which yields the following sequence of approximations:
+
+$$
+12 \tfrac{1}{2},\quad 12 \tfrac{1}{3},\quad 12 \tfrac{3}{8},\quad 12 \tfrac{4}{11}.
+$$
+
+The last two already look pretty good,
+but in fact they would produce a full-day drift once every 5 and 7 years, respectively.
+Over two thousand years of exile, that would accumulate into a dramatic drift.
 
 The next approximation is the one we know:
 
-$$12 + \frac{7}{19} = 12.36842105.$$
+$$12 \frac{7}{19} = 12.36842105.$$
 
-This approximation reduces the drift to about one day per 200 years, a significant improvement at a relatively low price. In fact, you can say that it is the minimal approximation that makes the calendar reasonably stable.
+This approximation reduces the drift to about one day per 200 years,
+a significant improvement at a relatively low price.
+In fact, you can say that it is the minimal approximation complexity that makes the calendar reasonably stable.
 
-And as we said, since this approximation is obtained by truncating the continued fraction, it is optimal. If we were searching for a better approximation, we would necessarily have to increase the cycle length, which is not short to begin with.
+And as we said, since this approximation is obtained by truncating the continued fraction, it is optimal.
+If we were searching for a better approximation,
+we would necessarily have to increase the cycle length,
+which is not short to begin with.
 
 To complete the picture: the next approximation in line is
-
-$$12 + \frac{81}{220}.$$
-
+$12 \frac{81}{220}.$
 As far as I know, there is no reasonable way to implement such a cycle.
 
 ## Conclusion
@@ -353,19 +369,16 @@ As far as I know, there is no reasonable way to implement such a cycle.
 The civil (Gregorian) calendar is trying to approximate the number of days in a solar year.  
 Their approximation is:
 
-$$365 + \frac{97}{400}.$$
+$$365 \frac{97}{400}.$$
 
 Using continued fractions we showed that a better, some would say simpler, approximation is:
 
-$$365 + \frac{31}{128}.$$
+$$365 \frac{31}{128}.$$
 
-The Hebrew calendar is trying to approximate the number of lunar months in a solar year.  
+The Jewish calendar is trying to approximate the number of lunar months in a solar year.  
 The Hebrew approximation is:
 
-$$12 + \frac{7}{19}.$$
+$$12 \frac{7}{19}.$$
 
-Here, the continued-fraction development shows that this is the optimal cycle: any other approximation would either have a much larger drift or a much longer cycle.
-
-Thanks to everyone who managed to hang on and listen until here.
-
-Shabbat shalom.
+Here, the continued-fraction development shows that this is the optimal cycle:
+any other approximation would either have a much larger drift or a much longer cycle.
