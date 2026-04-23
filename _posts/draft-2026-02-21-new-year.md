@@ -383,3 +383,5 @@ $$12 \frac{7}{19}.$$
 
 Here, the continued-fraction development shows that this is the optimal cycle:
 any other approximation would either have a much larger drift or a much longer cycle.
+
+There is something delightful about how a tool from pure number theory turns out to be exactly the right lens for understanding something as ancient and practical as a calendar.
