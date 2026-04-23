@@ -4,3 +4,15 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="MyWebSite" />
 <link rel="manifest" href="/assets/images/favicons/site.webmanifest" />
+
+{% if page.mathjax %}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{% endif %}
