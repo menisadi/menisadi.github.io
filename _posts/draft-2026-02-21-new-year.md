@@ -9,7 +9,7 @@ tags:
   - judaism
   - history
   - math
-  - continius fractions
+  - continued fractions
   - lecture
 ---
 
@@ -105,7 +105,7 @@ The ratio between them is:
 $$12.36826592.$$
 
 The Jewish approximation, those 7 leap years (with extra month) in a 19-year cycle,
-resulting in $$12 7/19$$ months (on average) year.
+resulting in $12\frac{7}{19}$ months per year (on average).
 This also has some deviation, we'll touch on that later.
 
 I want to claim here, in the name of my number theory lecturer, Prof. Ido Efrat,
@@ -253,9 +253,9 @@ $$
 \pi = 3 + \frac{1}{7 + \frac{1}{15 + \frac{1}{1 + \frac{1}{292 + \cdots}}}}.
 $$
 
-If we cut it very early, we get after the firs digit, we get simply $3$.  
+If we cut it very early — after the first digit — we get simply $3$.  
 If we add the next "part", we get $3 + \frac{1}{7}$.  
-Note, that with this representation, when we "cut off" the representation after the second "level" we get the Greek approximation, once we mentioned is better than the famous $3.14$.
+Note that with this representation, when we "cut off" the representation after the second "level", we get the Greek approximation, which we mentioned is better than the famous $3.14$.
 If we continue one more step, we get, after a bit of arithmetic:
 
 $$3 + \frac{1}{7 + \frac{1}{15}} = 3 + \frac{15}{106} = \frac{333}{106} \approx 3.141509.$$
@@ -276,7 +276,7 @@ So, to summarize: if we want to approximate a number optimally, we can convert i
 
 ### The Civil Calendar Could Have Done Better
 
-Reminder: the designers of the civil (Julian/Gregorian) calendar needed to find an approximation to the number of days in a solar year, the number in Source 1.  
+Reminder: the designers of the civil (Julian/Gregorian) calendar needed to find an approximation to the [number of days in a solar year](#gregorian-intercalation-leap-days).  
 The approximation used in practice, after the Gregorian correction, is:
 
 $$365 \frac{97}{400} = 365.242.$$
@@ -337,7 +337,7 @@ $$
 12 + \frac{1}{2 + \frac{1}{1 + \frac{1}{2 + \frac{1}{1 + \frac{1}{1 + \frac{1}{17 + \frac{1}{2 + \dots }}}}}}}
 $$
 
-Which yields the following sequence of approximations:
+This yields the following sequence of approximations:
 
 $$
 12 \tfrac{1}{2},\quad 12 \tfrac{1}{3},\quad 12 \tfrac{3}{8},\quad 12 \tfrac{4}{11}.
