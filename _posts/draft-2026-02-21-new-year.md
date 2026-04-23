@@ -285,7 +285,7 @@ That's not bad. But let's enlist our new friends: continued fractions.
 
 A continued fraction equal to the target number is:
 $$
-365 + \frac{1}{4 + \frac{1}{7 + \frac{1}{3 + \frac{1}{24 + \frac{1}{6 + \frac{1}{2 + \cdots}}}}}}.
+365 + \frac{1}{4 + \frac{1}{7 + \frac{1}{1 + \frac{1}{3 + \frac{1}{24 + \frac{1}{6 + \frac{1}{2 + \cdots}}}}}}}.
 $$
 
 If we truncate it after one step we get the Julian approximation:
@@ -300,7 +300,7 @@ If we go another step, we get
 
 $$365 \frac{8}{33}.$$
 
-Already at this stage we've obtained an approximation that is better than the current one by about 50%.
+Already at this stage we've obtained an approximation that is better than the current one.
 But, you might say: a cycle of 8 leap years every 33 years is less memorable than the current system,
 so the small improvement isn't worth it.
 Fair enough.
