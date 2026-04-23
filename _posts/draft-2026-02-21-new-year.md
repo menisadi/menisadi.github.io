@@ -361,7 +361,7 @@ we would necessarily have to increase the cycle length,
 which is not short to begin with.
 
 To complete the picture: the next approximation in line is
-$12 \frac{81}{220}.$
+$12 \frac{123}{334}$ and $12 \frac{253}{687}.$
 As far as I know, there is no reasonable way to implement such a cycle.
 
 ## Conclusion
