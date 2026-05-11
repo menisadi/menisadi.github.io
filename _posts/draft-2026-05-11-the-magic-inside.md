@@ -1,17 +1,33 @@
-A few days ago, I had a talk with my wife about my future career, directions, and planning. She asked me at one point: what do you really like? What makes you feel good?
+---
+layout: single
+title: "Where the Magic Lives"
+toc: true
+toc_sticky: true
+# collection: posts
+mathjax: true
+tags:
+  - ai
+  - llm
+  - learning
+  - programming
+  - reflection
+  - claude
+---
 
-After talking about statistics, data, math, and stuff like that, I went on a few seconds of silence, and then I added: I think I really like creating things. "Really?" She looked at me surprised. I don't blame her. I'm not the regular DIY guy. You won't see me creating stuff at home or doing gardening — I truly have two left hands, to be honest. And I'm not too much into Lego or puzzles either.
+A few days ago, I had a talk with my wife about my future career, directions, and planning. At one point she asked me: what do you really like? What makes you feel good?
 
-I think that I like to see how ideas act in life, how stuff that I do creates things that actually have a real result on stuff in life. It's sort of like seeing the magic happen — you don't only know the magic, but you see it in action. You see it perform and you see its results manifest. I think it's a form of creation. When you do something, you create a thing in the world, which is yours, or at least partly yours.
+After talking about statistics, data, math, and stuff like that, I paused for a few seconds, and then I added: I think I really like creating things. "Really?" She looked at me surprised. I don't blame her. I'm not the regular DIY guy. You won't see me building things at home or gardening — I truly have two left hands, to be honest. And I'm not really into Lego or puzzles either.
 
-And then I figured that's what might be so frustrating with the new AI revolution and the new workflow in the programming world. I recently tried to learn some new things, some new concepts — like following Andrej Karpathy's micrograd lectures, or going over ideas from Bayesian statistics.
+I think I like seeing how ideas act in the world — how the things I do create real results. It's sort of like seeing the magic happen: you don't only know the magic, you see it in action. You see it perform, you see its results manifest. I think it's a form of creation. When you do something, you make a thing in the world that's yours, or at least partly yours.
 
-I obviously turned off every AI sort of tool that I have when practicing. I didn't open Claude Code, I didn't go to the Claude tab or ChatGPT tab on my browser, I even turned off the auto-completion of Copilot. Everything was off. I think most of you can understand that if you do try to learn something, follow some tutorial, practice, or anything like that — using those tools will just blow it all in a second. You end up with the results and the assignments ready, but you didn't do a thing, you didn't learn anything from it.
+And then I realized that's what might be so frustrating about the new AI revolution and the new workflow in the programming world. Recently I've been trying to learn some new things, some new concepts — following Andrej Karpathy's micrograd lectures, or going over ideas from Bayesian statistics.
 
-So as I was working on practicing and implementing some fundamental stuff, I noticed that I really, really enjoyed it. I'm not really that much into programming. One of the reasons I went for more of a data science or math direction, even though I did take computer science as my bachelor's degree, is that I realized I'm more into the ideas than the tiny, tiny details of the implementation. Hunting for bugs or connecting one service to another wasn't my go-to hobby — it wasn't really the stuff that gave me gratification.
+I obviously turned off every AI tool I have when practicing. I didn't open Claude Code, I didn't go to the Claude or ChatGPT tab on my browser, I even turned off Copilot's auto-completion. Everything was off. I think most of you can understand that if you're trying to learn something, follow a tutorial, practice — using those tools will just blow it all in a second. You end up with the results and the assignments ready, but you didn't do a thing, you didn't learn anything from it.
 
-But I do really like, as I said, creating things. Taking those ideas, taking something like Thompson sampling or gradient descent, and writing it down, and seeing how the lines that I wrote actually do magic. Because if I just import them from a library — well, magic exists in the world in that sense. There are some amazing things happening, but we take them for granted. It's not until you yourself write it down, you yourself build it block by block and brick by brick, that you realize how the meal is cooked, how the magic is done. And only then you realize that it's magic, and that it's wonderful, and it's amazing, and it's really not so clear why the hell this even works. And even if you do understand why it works, it's still — it's still amazing that it does.
+So as I was practicing and implementing some fundamentals, I noticed that I really, really enjoyed it. I'm not really that much into programming. One of the reasons I drifted toward data science and math, even though my bachelor's was in computer science, is that I'm more into the ideas than the tiny, tiny details of implementation. Hunting for bugs or wiring one service to another wasn't my go-to hobby — it wasn't where the gratification came from.
+
+But I do really like, as I said, creating things. Taking ideas — something like Thompson sampling, or gradient descent — and writing them down, and seeing how the lines I wrote actually do magic. Or another time, building a little gravity-based game in Love2D, partly to learn Lua and partly to actually understand how this stuff works — having to think through how velocity should update each frame, how a collision should behave, what "bounce" really means in code. Because if I just import all of this from a library — well, magic exists in the world in that sense. There are amazing things happening, but we take them for granted. It's not until you write it down yourself, build it block by block and brick by brick, that you realize how the meal is cooked, how the magic is done. And only then you realize that it's magic, that it's wonderful and amazing, and that it's really not so clear why the hell this even works. And even if you do understand why it works, it's still — it's still amazing that it does.
 
 And all of this goes away when you give the LLM the wheel.
 
-Thing is, I don't know what to do with it. I'm not saying it's a reason to avoid using those tools — I do use them all the time. But I do wonder if there is a way to keep this spark, to help me stay in the loop, behind the curtains of it all, and not just observe as stuff gets built, and not just stay outside the black box. I want to be inside the black box, or at least some of the black boxes.
+Thing is, I don't know what to do with it. I'm not saying it's a reason to avoid those tools — I do use them all the time. But I do wonder if there's a way to keep this spark, to help me stay in the loop, behind the curtain of it all, and not just observe as stuff gets built from outside the black box. I want to be inside the black box, or at least some of the black boxes.
