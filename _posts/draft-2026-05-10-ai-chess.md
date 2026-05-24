@@ -14,9 +14,9 @@ tags:
 ---
 
 Few days ago I was playing around with some chess related CLI stuff Claude help me create.
-I was listening to [Andrej Karpathy's talk at Sequoia Ascent](https://www.youtube.com/watch?v=96jN2OCOfLs) mentioning chess as an example of an area on which models had a significant improvement due to focused fine-tuning by the labs.
-I recalled all the mockery the chess community had over ChatGPT attempts to play chess back in 2023-2024 and wondered if the models really got so much better.
-I wanted to examine this but at the same time I had not interest in games which drifted into gibberish.
+I was intrigued by a talk by [Andrej Karpathy's talk at Sequoia Ascent](https://www.youtube.com/watch?v=96jN2OCOfLs) mentioning chess as an example of an area on which models had a significant improvement due to focused fine-tuning by the labs.
+I recalled all the [mockery](#) the chess [community](#) had over ChatGPT attempts to play chess back in 2023-2024 and wondered if the models really got so much better.
+We are on the "agentic" phase and all, so I wanted to examine this using proper agentic workflow. It was clear to me that I had not interest in games which drifted into gibberish. So I taled to Claude Code again.
 
 ## The tool
 
@@ -27,17 +27,20 @@ The agent uses notleko to read the game's state, print the board, list possible 
 The commands look like this:
 
 ```bash
-```text
 notleko --file game.pgn new --color white
-notleko --file game.pgn move e2e4 --reason "Controls the center"
 notleko --file game.pgn engine
 notleko --file game.pgn status
 notleko --file game.pgn legal-moves
 ```
 
-In addition, as I previously had an interesting experiment with ChatGPT o3 chain-of-thoughts while playing chess, I incorporated a commenting aspect to the tool (hence the reference to Leko of course). On each move the agent is asked to add a comment, using a dedicated flag in the CLI. The comment will be embedded on the PGN in a standard fashion. In addition after observing Stockfish's move the agent is asked to add to it his "thoughts" about it, using a dedicated 'comment' subcommand.
-The game file accumulates a fully annotated record as it goes, written move by move.
+In addition, as I previously had an interesting experiment with ChatGPT o3 chain-of-thoughts while playing chess, I incorporated a commenting aspect to the tool (hence the reference to Leko of course). On each move the agent is asked to add a comment, using a dedicated flag in the CLI. The comment will be embedded on the PGN in a standard fashion. In addition after observing Stockfish's move the agent is asked to add to it his "thoughts" about it, using a dedicated 'comment' subcommand. The commands look like the following:
 
+```bash
+notleko --file game.pgn move e2e4 --reason "Controls the center"
+notleko gam.pgn comment "Stockfish is pushing on the queen side"
+```
+
+The game file accumulates a fully annotated record as it goes, written move by move.
 Putting all this together the only think left is the initial prompt which was the following:
 
 ```md
@@ -68,7 +71,7 @@ That's the entire prompt. No chess instruction whatsoever.
 
 ## The Games
 
-I run 4 games. Two using Claude Haiku, One using Claude Sonnet and one using MinMax M2.5. All three played as White. All three lost.
+I run 5 games. Two using Claude Haiku, one using Claude Sonnet, one using Claude Opus and one using MinMax M2.5. All three played as White. All three lost.
 The games are available as a Lichess study [here](https://lichess.org/study/7LSb5U2L/RnT28TaZ) — worth playing through with annotations visible. Reading the moves alone doesn't do it justice.
 
 ### Haiku
