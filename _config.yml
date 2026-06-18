@@ -55,7 +55,7 @@ plugins:
 author:
     name: "Meni Sadigurschi"
     avatar: "/assets/images/profile.jpeg"
-    bio: "Data scientist and math enthusiast"
+    bio: "ML & data scientist with a passion for math"
     location: "Yeruham, IL"
     links:
         - label: "Google Scholar"
