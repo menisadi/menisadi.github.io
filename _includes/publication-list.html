@@ -1,0 +1,13 @@
+{% assign pubs = site.data.publications %}
+{% if include.section %}{% assign pubs = pubs | where: "section", include.section %}{% endif %}
+{% if include.selected_only %}{% assign pubs = pubs | where: "selected", true %}{% endif %}
+{% for pub in pubs %}
+{% if include.show_authors == false %}
+- **{{ pub.title }}**{% if pub.venue %} ({{ pub.venue }}){% endif %}  
+  {% for link in pub.links %}[{{ link.label }}]({{ link.url }}){% unless forloop.last %} | {% endunless %}{% endfor %}
+{% else %}
+- **{{ pub.title }}**{% if pub.venue %} ({{ pub.venue }}){% endif %}  
+  {{ pub.authors }}  
+  {% for link in pub.links %}[{{ link.label }}]({{ link.url }}){% unless forloop.last %} | {% endunless %}{% endfor %}
+{% endif %}
+{% endfor %}

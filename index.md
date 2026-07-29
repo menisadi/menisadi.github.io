@@ -12,11 +12,7 @@ My Email: [meni.sadi@gmail.com](mailto:menisadi+site@gmail.com)
 
 <h2 class="archive__subtitle">Selected Publications</h2>
 
-- **Agnostic Sample Compression Schemes for Regression** (ICML 2024 Spotlight)  
-  [arXiv](https://arxiv.org/abs/1810.01864) | [ICML Page](https://proceedings.mlr.press/v235/attias24b.html)
-
-- **On the Sample Complexity of Privately Learning Axis-Aligned Rectangles** (NeurIPS 2021)  
-  [arXiv](https://arxiv.org/abs/2107.11526) | [NeurIPS Page](https://neurips.cc/virtual/2021/poster/27837) | [Slides](https://slideslive.com/38967726/on-the-sample-complexity-of-privately-learning-axisaligned-rectangles?ref=speaker-87784)
+{% include publication-list.html selected_only=true show_authors=false %}
 
 [All publications &rarr;](/publications/)
 

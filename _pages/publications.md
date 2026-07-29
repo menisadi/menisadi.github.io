@@ -7,31 +7,11 @@ author_profile: true
 
 ### Conferences
 
-- **Agnostic Sample Compression Schemes for Regression** (ICML 2024 Spotlight)  
-  [Idan Attias](https://www.idanattias.com/), [Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi  
-  [arXiv](https://arxiv.org/abs/1810.01864) | [ICML Page](https://proceedings.mlr.press/v235/attias24b.html)
-
-- **Relaxed Models for Adversarial Streaming: The Advice Model and the Bounded Interruptions Model** (ESA 2023)  
-  Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/), [Moshe Shechner](https://www.shechner.com/)  
-  [arXiv](https://arxiv.org/abs/2301.09203) | [ESA 2023 Page](https://algo-conference.org/2023/esa/)
-
-- **Adaptive Data Analysis with Correlated Observations** (ICML 2022)  
-  [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)  
-  [arXiv](https://arxiv.org/abs/2201.08704) | [ICML Page](https://icml.cc/virtual/2022/spotlight/16034) | [Lecture](https://www.youtube.com/watch?v=10OUHwYU8cQ) | [Slides](https://slideslive.com/38983877/adaptive-data-analysis-with-correlated-observations?ref=speaker-106654)
-
-- **On the Sample Complexity of Privately Learning Axis-Aligned Rectangles** (NeurIPS 2021)  
-  Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)  
-  [arXiv](https://arxiv.org/abs/2107.11526) | [NeurIPS Page](https://neurips.cc/virtual/2021/poster/27837) | [Slides](https://slideslive.com/38967726/on-the-sample-complexity-of-privately-learning-axisaligned-rectangles?ref=speaker-87784)
-
-- **Sample Compression for Real-Valued Learners** (ALT 2019)  
-  [Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi  
-  [arXiv](https://arxiv.org/abs/1805.08254) | [Lecture](https://www.youtube.com/watch?v=ueEvY4Ws0l4)
+{% include publication-list.html section="Conferences" %}
 
 ### Preprints
 
-- **Differentially-Private Bayes Consistency**  
-  [Olivier Bousquet](https://research.google/people/OlivierBousquet/), [Haim Kaplan](https://www.cs.tau.ac.il/~haimk/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), [Yishay Mansour](https://www.tau.ac.il/~mansour/), [Shay Moran](https://www.cs.technion.ac.il/~shaymrn/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)  
-  [arXiv](https://arxiv.org/abs/2212.04216)
+{% include publication-list.html section="Preprints" %}
 
 ## Thesis – Ph.D.
 

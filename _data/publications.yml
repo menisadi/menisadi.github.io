@@ -1,0 +1,68 @@
+- title: "Agnostic Sample Compression Schemes for Regression"
+  venue: "ICML 2024 Spotlight"
+  authors: "[Idan Attias](https://www.idanattias.com/), [Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi"
+  section: Conferences
+  selected: true
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/1810.01864
+    - label: ICML Page
+      url: https://proceedings.mlr.press/v235/attias24b.html
+
+- title: "Relaxed Models for Adversarial Streaming: The Advice Model and the Bounded Interruptions Model"
+  venue: "ESA 2023"
+  authors: "Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/), [Moshe Shechner](https://www.shechner.com/)"
+  section: Conferences
+  selected: false
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2301.09203
+    - label: ESA 2023 Page
+      url: https://algo-conference.org/2023/esa/
+
+- title: "Adaptive Data Analysis with Correlated Observations"
+  venue: "ICML 2022"
+  authors: "[Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)"
+  section: Conferences
+  selected: false
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2201.08704
+    - label: ICML Page
+      url: https://icml.cc/virtual/2022/spotlight/16034
+    - label: Lecture
+      url: https://www.youtube.com/watch?v=10OUHwYU8cQ
+    - label: Slides
+      url: https://slideslive.com/38983877/adaptive-data-analysis-with-correlated-observations?ref=speaker-106654
+
+- title: "On the Sample Complexity of Privately Learning Axis-Aligned Rectangles"
+  venue: "NeurIPS 2021"
+  authors: "Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)"
+  section: Conferences
+  selected: true
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2107.11526
+    - label: NeurIPS Page
+      url: https://neurips.cc/virtual/2021/poster/27837
+    - label: Slides
+      url: https://slideslive.com/38967726/on-the-sample-complexity-of-privately-learning-axisaligned-rectangles?ref=speaker-87784
+
+- title: "Sample Compression for Real-Valued Learners"
+  venue: "ALT 2019"
+  authors: "[Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi"
+  section: Conferences
+  selected: false
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/1805.08254
+    - label: Lecture
+      url: https://www.youtube.com/watch?v=ueEvY4Ws0l4
+
+- title: "Differentially-Private Bayes Consistency"
+  authors: "[Olivier Bousquet](https://research.google/people/OlivierBousquet/), [Haim Kaplan](https://www.cs.tau.ac.il/~haimk/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), [Yishay Mansour](https://www.tau.ac.il/~mansour/), [Shay Moran](https://www.cs.technion.ac.il/~shaymrn/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)"
+  section: Preprints
+  selected: false
+  links:
+    - label: arXiv
+      url: https://arxiv.org/abs/2212.04216
