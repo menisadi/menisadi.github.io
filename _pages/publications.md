@@ -17,11 +17,11 @@ author_profile: true
 
 - **Adaptive Data Analysis with Correlated Observations** (ICML 2022)  
   [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)  
-  [arXiv](https://arxiv.org/abs/2201.08704) | [ICML Page](https://icml.cc/virtual/2022/spotlight/16034) | [Lecture](https://www.youtube.com/watch?v=10OUHwYU8cQ)
+  [arXiv](https://arxiv.org/abs/2201.08704) | [ICML Page](https://icml.cc/virtual/2022/spotlight/16034) | [Lecture](https://www.youtube.com/watch?v=10OUHwYU8cQ) | [Slides](https://slideslive.com/38983877/adaptive-data-analysis-with-correlated-observations?ref=speaker-106654)
 
 - **On the Sample Complexity of Privately Learning Axis-Aligned Rectangles** (NeurIPS 2021)  
   Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)  
-  [arXiv](https://arxiv.org/abs/2107.11526) | [NeurIPS Page](https://neurips.cc/virtual/2021/poster/27837)
+  [arXiv](https://arxiv.org/abs/2107.11526) | [NeurIPS Page](https://neurips.cc/virtual/2021/poster/27837) | [Slides](https://slideslive.com/38967726/on-the-sample-complexity-of-privately-learning-axisaligned-rectangles?ref=speaker-87784)
 
 - **Sample Compression for Real-Valued Learners** (ALT 2019)  
   [Steve Hanneke](http://www.stevehanneke.com/), [Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi  
