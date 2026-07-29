@@ -16,7 +16,7 @@ My Email: [meni.sadi@gmail.com](mailto:menisadi+site@gmail.com)
   [arXiv](https://arxiv.org/abs/1810.01864) | [ICML Page](https://proceedings.mlr.press/v235/attias24b.html)
 
 - **On the Sample Complexity of Privately Learning Axis-Aligned Rectangles** (NeurIPS 2021)  
-  [arXiv](https://arxiv.org/abs/2107.11526) | [NeurIPS Page](https://neurips.cc/virtual/2021/poster/27837)
+  [arXiv](https://arxiv.org/abs/2107.11526) | [NeurIPS Page](https://neurips.cc/virtual/2021/poster/27837) | [Slides](https://slideslive.com/38967726/on-the-sample-complexity-of-privately-learning-axisaligned-rectangles?ref=speaker-87784)
 
 [All publications &rarr;](/publications/)
 
