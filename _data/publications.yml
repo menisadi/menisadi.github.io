@@ -21,7 +21,7 @@
       url: https://algo-conference.org/2023/esa/
 
 - title: "Adaptive Data Analysis with Correlated Observations"
-  venue: "ICML 2022"
+  venue: "ICML 2022 Spotlight"
   authors: "[Aryeh Kontorovich](https://www.cs.bgu.ac.il/~karyeh/), Menachem Sadigurschi, [Uri Stemmer](https://www.uri.co.il/)"
   section: Conferences
   selected: false
