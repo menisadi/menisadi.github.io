@@ -6,7 +6,7 @@ toc: true
 toc_sticky: true
 collection: posts
 author: Meni
-tags: [neovim, vim, hebrew, rtl, kitty, markdown]
+tags: [neovim, vim, hebrew, rtl, kitty, ghostty, markdown]
 ---
 
 I've been using Neovim as my daily driver for coding tasks for two years now. 
@@ -212,6 +212,13 @@ So, I just needed to add the following to my config:
 symbol_map U+0590-U+05FF Cousine
 ```
 
+If you're on [Ghostty](https://ghostty.org/docs/config/reference) instead, the equivalent option is `font-codepoint-map`:
+
+```conf
+# ~/.config/ghostty/config
+font-codepoint-map = U+0590-U+05FF=Noto Sans Mono
+```
+
 ---
 
 ## Bonus 2 - Markdown rendering
@@ -253,6 +260,7 @@ Now back to actually writing something...
 * [Neovim Spell Documentation](https://neovim.io/doc/user/spell.html)
 * [“Spellchecking in Neovim” by Will Code for Beer](https://willcodefor.beer/posts/spellnvim)
 * [Kitty Config Docs](https://sw.kovidgoyal.net/kitty/conf/)
+* [Ghostty Config Reference](https://ghostty.org/docs/config/reference)
 * [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 * [Glow](https://github.com/charmbracelet/glow/)
 * [Glow Issue #725 – RTL rendering](https://github.com/charmbracelet/glow/issues/725)
