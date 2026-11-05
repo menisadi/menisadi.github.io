@@ -168,6 +168,7 @@
   .loading > div { display: grid; justify-items: center; gap: 16px; }
   .loading p { margin: 0; padding: 0 16px; text-align: center; color: var(--ink); }
   .signout { border: 0; background: none; cursor: pointer; font: inherit; font-size: 0.8rem; color: var(--accent); padding: 0; flex: none; }
+  .version { text-align: center; color: var(--muted); font-size: 0.75rem; margin: 8px 0 24px; }
   @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
 </style>
 </head>
@@ -226,6 +227,8 @@
     <p class="hint">מתמחים בארכיון נשארים בגיליון, כך שההערכות שלהם נשמרות.</p>
   </section>
 </main>
+
+<footer id="version" class="version"></footer>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <div id="loading" class="loading"><div><p id="loading-msg">טוען…</p><div id="signin-button"></div></div></div>
@@ -459,6 +462,8 @@ $('#signout').addEventListener('click', () => {
 });
 
 /* ---------- Start ---------- */
+// When this page was published (GitHub Pages sends Last-Modified), so we can tell which copy is open
+$('#version').textContent = 'עודכן: ' + new Date(document.lastModified).toLocaleDateString('he-IL');
 $('#eval-date').value = today();
 $('#new-intern-start').value = today();
 
