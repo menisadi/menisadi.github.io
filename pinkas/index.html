@@ -1,22 +1,487 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>הערכת מתמחים</title>
-<!-- Short link to the intern evaluations app (Google Apps Script web app).
-     If the deployment ever changes, update the URL in all three places below. -->
-<meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbw723h8FD9GY-zmQo0QFCG5zWxcYMGXsEiqk7-Z7f2EnvVR4DmGxLuaGifpAu-kkvs/exec">
-<script>location.replace('https://script.google.com/macros/s/AKfycbw723h8FD9GY-zmQo0QFCG5zWxcYMGXsEiqk7-Z7f2EnvVR4DmGxLuaGifpAu-kkvs/exec');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  body { font-family: system-ui, sans-serif; text-align: center; padding: 48px 16px; background: #fff; color: #13303a; }
-  a { color: #1f6f8b; }
-  @media (prefers-color-scheme: dark) { body { background: #12191c; color: #e4eef0; } a { color: #7cc4d8; } }
+  :root {
+    color-scheme: light dark;
+    --bg: #eef3f4;
+    --surface: #ffffff;
+    --ink: #13303a;
+    --muted: #5e7580;
+    --line: #d6e0e3;
+    --accent: #1f7a8c;
+    --accent-ink: #ffffff;
+    --accent-soft: #dcecef;
+    --amber: #a8620a;
+    --amber-soft: #fbefd9;
+    --danger: #b3402c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1c21;
+      --surface: #16262c;
+      --ink: #e4eef0;
+      --muted: #8fa7af;
+      --line: #24393f;
+      --accent: #5fb7c7;
+      --accent-ink: #0b1a1e;
+      --accent-soft: #1b3840;
+      --amber: #e8a33d;
+      --amber-soft: #33281a;
+      --danger: #f08a6d;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.45 'Rubik', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Header + tabs */
+  .top {
+    position: sticky; top: 0; z-index: 5;
+    background: var(--bg);
+    padding: calc(env(safe-area-inset-top, 0px) + 14px) 16px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand, .tabs, main { max-width: 620px; margin-left: auto; margin-right: auto; }
+  .brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  h1 { display: flex; align-items: center; gap: 10px; font-size: 1.3rem; font-weight: 600; margin: 0; letter-spacing: -0.01em; }
+  h1::before {
+    content: ''; width: 16px; height: 16px; flex: none;
+    background:
+      linear-gradient(var(--accent), var(--accent)) center / 100% 36% no-repeat,
+      linear-gradient(var(--accent), var(--accent)) center / 36% 100% no-repeat;
+    border-radius: 2px;
+  }
+  .user { font-size: 0.8rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tabs { display: flex; gap: 4px; background: var(--line); padding: 4px; border-radius: 12px; }
+  .tab {
+    flex: 1; border: 0; background: transparent; cursor: pointer;
+    font: inherit; font-size: 0.95rem; font-weight: 500; color: var(--muted);
+    padding: 9px 6px; border-radius: 9px;
+  }
+  .tab.active { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(19, 48, 58, 0.12); }
+  .tab[hidden] { display: none; }
+
+  main { padding: 16px; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  /* Forms */
+  .field { display: block; margin-bottom: 14px; }
+  .field > span { display: block; font-size: 0.88rem; font-weight: 500; color: var(--muted); margin-bottom: 6px; }
+  input[type=text], input[type=date], select, textarea {
+    width: 100%; min-height: 46px;
+    font: inherit; color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 11px 12px;
+    -webkit-appearance: none; appearance: none;
+  }
+  select {
+    padding-left: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237f949b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: left 13px center;
+  }
+  textarea { resize: vertical; min-height: 84px; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  .btn {
+    display: block; width: 100%; min-height: 48px; cursor: pointer;
+    font: inherit; font-weight: 500; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 12px;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  .btn:disabled { opacity: 0.6; cursor: default; }
+  .row { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+  .row > * { flex: 1; min-width: 0; }
+  .stack { margin-bottom: 10px; }
+
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 12px; }
+  h3 { display: flex; align-items: center; gap: 8px; font-size: 0.98rem; font-weight: 600; margin: 0; }
+  .count { font-size: 0.78rem; font-weight: 500; border-radius: 99px; padding: 1px 9px; background: var(--accent-soft); color: var(--accent); }
+
+  /* Lists */
+  .list { list-style: none; margin: 10px 0 0; padding: 0; }
+  .list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line); }
+  .list li:first-child { border-top: 0; }
+  .list li > div { min-width: 0; }
+  .list small { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 2px; }
+  .list p { margin: 6px 0 0; font-size: 0.92rem; opacity: 0.85; }
+  .list .empty { color: var(--muted); font-size: 0.92rem; }
+  .list b { font-weight: 500; }
+  .link { border: 0; background: none; cursor: pointer; font: inherit; font-size: 0.9rem; color: var(--danger); padding: 6px 2px; flex: none; }
+
+  /* Progress */
+  .summary h2 { margin: 0; font-size: 1.35rem; }
+  .summary .since { color: var(--muted); font-size: 0.88rem; margin-top: 2px; }
+
+  /* Evaluation criteria */
+  .crit { border-top: 1px solid var(--line); padding-top: 14px; margin-top: 14px; }
+  .crit:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+  .crit h3 { margin-bottom: 4px; }
+  .crit .desc { color: var(--muted); font-size: 0.85rem; margin: 0 0 10px; }
+  .seg { display: flex; gap: 4px; background: var(--line); padding: 4px; border-radius: 10px; margin-bottom: 10px; }
+  .seg label { flex: 1; position: relative; }
+  .seg input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .seg span { display: block; text-align: center; font-size: 0.88rem; font-weight: 500; color: var(--muted); padding: 9px 4px; border-radius: 7px; }
+  .seg input:checked + span { background: var(--accent); color: var(--accent-ink); }
+  .seg input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .crit textarea { min-height: 56px; }
+
+  .empty-state { text-align: center; color: var(--muted); padding: 28px 12px; margin: 0; }
+  .hint { font-size: 0.85rem; color: var(--muted); text-align: center; margin: 4px 0 0; }
+
+  .toast {
+    position: fixed; left: 50%; z-index: 20;
+    bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+    transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+    max-width: calc(100% - 32px);
+    background: var(--ink); color: var(--bg);
+    padding: 11px 16px; border-radius: 10px; font-size: 0.93rem;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  .toast.error { background: var(--danger); color: #fff; }
+  .loading { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; background: var(--bg); color: var(--muted); }
+  .loading[hidden] { display: none; }
+  .loading > div { display: grid; justify-items: center; gap: 16px; }
+  .loading p { margin: 0; padding: 0 16px; text-align: center; color: var(--ink); }
+  .signout { border: 0; background: none; cursor: pointer; font: inherit; font-size: 0.8rem; color: var(--accent); padding: 0; flex: none; }
+  @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
 </style>
 </head>
 <body>
-<p>מעבירים אותך לאפליקציית הערכת המתמחים…</p>
-<p><a href="https://script.google.com/macros/s/AKfycbw723h8FD9GY-zmQo0QFCG5zWxcYMGXsEiqk7-Z7f2EnvVR4DmGxLuaGifpAu-kkvs/exec">אם לא עברת אוטומטית, יש ללחוץ כאן</a></p>
+
+<header class="top">
+  <div class="brand">
+    <h1>הערכת מתמחים</h1>
+    <span id="user" class="user" dir="ltr"></span>
+    <button id="signout" class="signout">התנתקות</button>
+  </div>
+  <nav class="tabs">
+    <button class="tab active" data-tab="eval">הערכה</button>
+    <button class="tab" data-tab="report">התקדמות</button>
+    <button class="tab" data-tab="manage" id="tab-manage" hidden>ניהול</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Fill in an evaluation form -->
+  <section id="panel-eval" class="panel active">
+    <div class="card">
+      <label class="field"><span>מתמחה</span><select id="eval-intern" dir="auto"></select></label>
+      <label class="field"><span>סוג הערכה</span><select id="eval-form" dir="auto"></select></label>
+      <label class="field" style="margin:0"><span>תאריך</span><input id="eval-date" type="date"></label>
+    </div>
+    <div id="eval-body" hidden>
+      <div id="eval-criteria" class="card"></div>
+      <div class="card">
+        <label class="field" style="margin:0"><span id="eval-key-label"></span><textarea id="eval-key" rows="3" dir="auto"></textarea></label>
+      </div>
+      <button id="eval-save" class="btn primary">שמירת הערכה</button>
+    </div>
+  </section>
+
+  <!-- Per-intern evaluations -->
+  <section id="panel-report" class="panel">
+    <div class="card">
+      <label class="field" style="margin:0"><span>מתמחה</span><select id="report-intern" dir="auto"></select></label>
+    </div>
+    <div id="report-body"></div>
+  </section>
+
+  <!-- Admin -->
+  <section id="panel-manage" class="panel">
+    <div class="card">
+      <h2>מתמחים</h2>
+      <div class="row">
+        <input id="new-intern-name" type="text" dir="auto" placeholder="שם מלא" aria-label="שם מלא">
+        <input id="new-intern-start" type="date" aria-label="תאריך התחלה" style="flex:0 0 42%">
+      </div>
+      <input id="new-intern-email" class="stack" type="text" dir="ltr" inputmode="email" placeholder="אימייל (לא חובה, לשיתוף הגיליון האישי)" aria-label="אימייל">
+      <button id="add-intern" class="btn">הוספת מתמחה</button>
+      <ul id="intern-list" class="list"></ul>
+    </div>
+    <p class="hint">מתמחים בארכיון נשארים בגיליון, כך שההערכות שלהם נשמרות.</p>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="loading" class="loading"><div><p id="loading-msg">טוען…</p><div id="signin-button"></div></div></div>
+
+<script>
+// The Apps Script web app (Code.js, doPost) and the OAuth client of the sign-in button.
+const API_URL = 'https://script.google.com/macros/s/AKfycbw723h8FD9GY-zmQo0QFCG5zWxcYMGXsEiqk7-Z7f2EnvVR4DmGxLuaGifpAu-kkvs/exec';
+const CLIENT_ID = '911213017810-k7iibsvjmq0hg4j1eflhmhbafh3pqrgd.apps.googleusercontent.com';
+
+const $ = s => document.querySelector(s);
+let data = null;
+
+function esc(s) {
+  return String(s == null ? '' : s).replace(/[&<>"']/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+function today() {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  return d.toISOString().slice(0, 10);
+}
+function niceDate(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || '');
+  if (!m) return s || '';
+  return new Date(+m[1], +m[2] - 1, +m[3]).toLocaleDateString('he-IL', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+function toast(msg, isError) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => (t.className = 'toast'), isError ? 10000 : 3200);   // errors stay long enough to read
+}
+function fail(e) { toast((e && e.message) || String(e), true); }
+
+/* ---------- Sign-in ---------- */
+// The Google ID token, sent with every call. It lasts about an hour; then the server says 'signin'.
+let token = null;
+let signedIn = null;   // resolves the promise of signIn() when Google hands over a token
+let signingIn = null;  // that promise, shared by calls that expire at the same time
+
+/** Cover the page with a message and the sign-in button until the user signs in. */
+function signIn(msg) {
+  if (signingIn) return signingIn;
+  $('#loading-msg').textContent = msg;
+  $('#signin-button').hidden = false;
+  $('#loading').hidden = false;
+  google.accounts.id.prompt();   // returning users: signs in by itself when it can
+  return signingIn = new Promise(resolve => { signedIn = resolve; });
+}
+
+function onCredential(resp) {
+  token = resp.credential;
+  $('#loading-msg').textContent = 'טוען…';
+  $('#signin-button').hidden = true;
+  signingIn = null;
+  if (signedIn) signedIn();
+}
+
+/* ---------- Backend ---------- */
+/** Run a function of Code.js (one listed in its API). An expired sign-in is renewed, then tried once more. */
+async function call(fn, ...args) {
+  let r = await post(fn, args);
+  if (!r.ok && r.code === 'signin') {
+    await signIn('פג תוקף ההתחברות. יש להתחבר שוב כדי להמשיך.');
+    $('#loading').hidden = true;
+    r = await post(fn, args);
+  }
+  if (!r.ok) throw Object.assign(new Error(r.error), { code: r.code });
+  return r.result;
+}
+
+async function post(fn, args) {
+  const res = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain' },   // a "simple" request: no CORS preflight
+    body: JSON.stringify({ fn, token, args }),
+  });
+  // Apps Script's own failures (quota, outage) come back as an HTML page, not JSON
+  const r = res.ok && await res.json().catch(() => null);
+  if (!r) throw new Error('השרת לא זמין' + (res.ok ? '' : ' (' + res.status + ')') + '. נסו שוב.');
+  return r;
+}
+
+/* ---------- Rendering ---------- */
+function setData(d) {
+  data = d;
+  $('#user').textContent = d.user;
+  $('#tab-manage').hidden = !d.isAdmin;
+
+  for (const id of ['#eval-intern', '#report-intern']) {
+    const sel = $(id), keep = sel.value;
+    sel.innerHTML = '<option value="">בחירת מתמחה</option>' +
+      d.interns.map(i => `<option value="${esc(i.id)}">${esc(i.name)}</option>`).join('');
+    if (d.interns.some(i => i.id === keep)) sel.value = keep;
+  }
+
+  const keepForm = $('#eval-form').value;
+  $('#eval-form').innerHTML = '<option value="">בחירת הערכה</option>' +
+    d.forms.map(f => `<option value="${esc(f.name)}">${esc(f.name)}</option>`).join('');
+  if (d.forms.some(f => f.name === keepForm)) $('#eval-form').value = keepForm;
+  $('#eval-key-label').textContent = d.keyMessage;
+  renderEvalForm();
+
+  renderManage();
+}
+
+// Rebuilding wipes what was typed, so only do it when the chosen form changes
+function renderEvalForm(reset) {
+  const form = data.forms.find(f => f.name === $('#eval-form').value);
+  $('#eval-body').hidden = !form;
+  if (!form || (!reset && $('#eval-criteria').dataset.form === form.name)) return;
+  $('#eval-criteria').dataset.form = form.name;
+  $('#eval-criteria').innerHTML = form.criteria.map((c, k) => `
+    <div class="crit" data-criterion="${esc(c.name)}">
+      <h3 dir="auto">${esc(c.name)}</h3>
+      ${c.description ? `<p class="desc" dir="auto">${esc(c.description)}</p>` : ''}
+      <div class="seg" role="radiogroup" aria-label="${esc(c.name)}">
+        ${data.ratings.map(r => `<label><input type="radio" name="rate-${k}" value="${esc(r)}"><span>${esc(r)}</span></label>`).join('')}
+      </div>
+      <textarea rows="2" dir="auto" placeholder="מלל חופשי (לא חובה)" aria-label="מלל חופשי: ${esc(c.name)}"></textarea>
+    </div>`).join('');
+  $('#eval-key').value = '';
+}
+
+function renderManage() {
+  $('#intern-list').innerHTML = data.interns.length
+    ? data.interns.map(i => `
+        <li><div><span dir="auto">${esc(i.name)}</span><small>תחילת התמחות: ${esc(niceDate(i.start))}</small></div>
+        <button class="link" data-archive="${esc(i.id)}" data-name="${esc(i.name)}">העברה לארכיון</button></li>`).join('')
+    : '<li class="empty">אין עדיין מתמחים. אפשר להוסיף את הראשון למעלה.</li>';
+}
+
+function renderReport(r) {
+  const counts = r.counts
+    .map(c => `<li><span dir="auto">${esc(c.form)}</span><span class="count">${c.count}</span></li>`).join('');
+  const evals = r.evals.length
+    ? r.evals.map(e => `
+        <li><div>
+          <span dir="auto">${esc(e.form)}</span>
+          <small>${esc(niceDate(e.date))}, הוערך ע״י <bdi>${esc(e.by.split('@')[0])}</bdi></small>
+          ${e.answers.map(a => `<p dir="auto"><b>${esc(a.criterion)}:</b> ${esc(a.rating)}${a.comment ? `. ${esc(a.comment)}` : ''}</p>`).join('')}
+          ${e.keyMessage ? `<p dir="auto"><b>${esc(data.keyMessage)}:</b> ${esc(e.keyMessage)}</p>` : ''}
+        </div></li>`).join('')
+    : '<li class="empty">עדיין אין הערכות. אפשר למלא הערכה בלשונית הערכה.</li>';
+
+  return `
+    <div class="card summary">
+      <h2 dir="auto">${esc(r.name)}</h2>
+      <div class="since">תחילת התמחות: ${esc(niceDate(r.start))}</div>
+      <ul class="list">${counts}</ul>
+    </div>
+    <div class="card"><h3>הערכות <span class="count">${r.evals.length}</span></h3><ul class="list">${evals}</ul></div>`;
+}
+
+async function loadReport() {
+  const id = $('#report-intern').value, body = $('#report-body');
+  if (!id) {
+    body.innerHTML = '<p class="empty-state">בחרו מתמחה כדי לראות את ההערכות.</p>';
+    return;
+  }
+  body.innerHTML = '<p class="empty-state">טוען…</p>';
+  try {
+    const r = await call('getInternReport', id);
+    if ($('#report-intern').value === id) body.innerHTML = renderReport(r);
+  } catch (e) { body.innerHTML = ''; fail(e); }
+}
+
+/* ---------- Events ---------- */
+document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + btn.dataset.tab));
+  if (btn.dataset.tab === 'report') {
+    if (!$('#report-intern').value && $('#eval-intern').value) $('#report-intern').value = $('#eval-intern').value;
+    loadReport();
+  }
+}));
+
+$('#eval-form').addEventListener('change', () => renderEvalForm());
+
+$('#eval-save').addEventListener('click', async () => {
+  const entry = {
+    internId: $('#eval-intern').value,
+    form: $('#eval-form').value,
+    date: $('#eval-date').value,
+    keyMessage: $('#eval-key').value.trim(),
+    answers: [...document.querySelectorAll('#eval-criteria .crit')].map(el => ({
+      criterion: el.dataset.criterion,
+      rating: (el.querySelector('input:checked') || {}).value || '',
+      comment: el.querySelector('textarea').value.trim(),
+    })),
+  };
+  if (!entry.internId) return toast('יש לבחור מתמחה.', true);
+  const unrated = entry.answers.find(a => !a.rating);
+  if (unrated) return toast(`יש לדרג את "${unrated.criterion}".`, true);
+
+  const btn = $('#eval-save');
+  btn.disabled = true; btn.textContent = 'שומר…';
+  try {
+    const r = await call('submitEvaluation', entry);
+    if (r.warning) toast(r.warning, true);
+    else toast(`נשמרה הערכה: ${entry.form} עבור ${$('#eval-intern').selectedOptions[0].text}`);
+    renderEvalForm(true);   // clear the ratings; keep intern, form and date for the next one
+  } catch (e) { fail(e); }
+  finally { btn.disabled = false; btn.textContent = 'שמירת הערכה'; }
+});
+
+$('#report-intern').addEventListener('change', loadReport);
+
+$('#add-intern').addEventListener('click', async () => {
+  const name = $('#new-intern-name').value.trim();
+  if (!name) return toast('יש להזין את שם המתמחה.', true);
+  try {
+    setData(await call('addIntern', { name, start: $('#new-intern-start').value, email: $('#new-intern-email').value.trim() }));
+    $('#new-intern-name').value = ''; $('#new-intern-email').value = '';
+    toast(`נוסף: ${name}`);
+  } catch (e) { fail(e); }
+});
+
+$('#intern-list').addEventListener('click', async e => {
+  const b = e.target.closest('[data-archive]');
+  if (!b || !confirm(`להעביר את ${b.dataset.name} לארכיון? ההיסטוריה נשארת בגיליון.`)) return;
+  try { setData(await call('archiveIntern', b.dataset.archive)); toast(`הועבר לארכיון: ${b.dataset.name}`); }
+  catch (err) { fail(err); }
+});
+
+// Forget the account, so the next sign-in asks which one
+$('#signout').addEventListener('click', () => {
+  google.accounts.id.disableAutoSelect();
+  location.reload();
+});
+
+/* ---------- Start ---------- */
+$('#eval-date').value = today();
+$('#new-intern-start').value = today();
+
+/** Sign in, then load. An account without access can try another one. */
+async function start(msg) {
+  await signIn(msg);
+  try {
+    setData(await call('getInitData')); loadReport(); $('#loading').hidden = true;
+  } catch (e) {
+    if (e.code === 'denied') {
+      google.accounts.id.disableAutoSelect();
+      return start(e.message + ' אפשר להתחבר עם חשבון אחר.');
+    }
+    $('#loading-msg').textContent = 'הטעינה נכשלה: ' + e.message;
+  }
+}
+
+function initSignIn() {
+  google.accounts.id.initialize({ client_id: CLIENT_ID, callback: onCredential, auto_select: true });
+  google.accounts.id.renderButton($('#signin-button'), { theme: 'outline', size: 'large', text: 'signin_with' });
+  start('יש להתחבר עם חשבון Google.');
+}
+</script>
+<script src="https://accounts.google.com/gsi/client" async onload="initSignIn()"></script>
 </body>
 </html>
