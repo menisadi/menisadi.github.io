@@ -237,6 +237,8 @@
 // The Apps Script web app (Code.js, doPost) and the OAuth client of the sign-in button.
 const API_URL = 'https://script.google.com/macros/s/AKfycbw723h8FD9GY-zmQo0QFCG5zWxcYMGXsEiqk7-Z7f2EnvVR4DmGxLuaGifpAu-kkvs/exec';
 const CLIENT_ID = '911213017810-k7iibsvjmq0hg4j1eflhmhbafh3pqrgd.apps.googleusercontent.com';
+// Raise on every release; shown in the footer next to the server's own VERSION (Code.js).
+const VERSION = '1.0.0';
 
 const $ = s => document.querySelector(s);
 let data = null;
@@ -310,6 +312,7 @@ async function post(fn, args) {
   // Apps Script's own failures (quota, outage) come back as an HTML page, not JSON
   const r = res.ok && await res.json().catch(() => null);
   if (!r) throw new Error('השרת לא זמין' + (res.ok ? '' : ' (' + res.status + ')') + '. נסו שוב.');
+  if (r.version) showVersion(r.version);
   return r;
 }
 
@@ -462,8 +465,11 @@ $('#signout').addEventListener('click', () => {
 });
 
 /* ---------- Start ---------- */
-// When this page was published (GitHub Pages sends Last-Modified), so we can tell which copy is open
-$('#version').textContent = 'עודכן: ' + new Date(document.lastModified).toLocaleDateString('he-IL');
+// Which copy of the page, and of the server once it answers, is running
+function showVersion(api) {
+  $('#version').textContent = `web ${VERSION}` + (api ? ` · api ${api}` : '');
+}
+showVersion();
 $('#eval-date').value = today();
 $('#new-intern-start').value = today();
 
