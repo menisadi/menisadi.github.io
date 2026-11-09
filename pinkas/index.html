@@ -88,6 +88,7 @@
 
   /* Forms */
   .field { display: block; margin-bottom: 14px; }
+  .field[hidden] { display: none; }
   .field > span { display: block; font-size: 0.88rem; font-weight: 500; color: var(--muted); margin-bottom: 6px; }
   input[type=text], input[type=date], select, textarea {
     width: 100%; min-height: 46px;
@@ -193,7 +194,8 @@
     <div class="card">
       <label class="field"><span>מתמחה</span><select id="eval-intern" dir="auto"></select></label>
       <label class="field"><span>סוג הערכה</span><select id="eval-form" dir="auto"></select></label>
-      <label class="field" style="margin:0"><span>תאריך</span><input id="eval-date" type="date"></label>
+      <label class="field" style="margin:0"><span>תאריך האירוע</span><input id="eval-date" type="date"></label>
+      <label class="field" id="eval-patient-field" style="margin:12px 0 0" hidden><span>ראשי תיבות המטופל</span><input id="eval-patient" type="text" maxlength="4" dir="auto" autocomplete="off" placeholder="ראשי תיבות בלבד, ללא שם מלא"></label>
     </div>
     <div id="eval-body" hidden>
       <div id="eval-criteria" class="card"></div>
@@ -238,7 +240,7 @@
 const API_URL = 'https://script.google.com/macros/s/AKfycbw723h8FD9GY-zmQo0QFCG5zWxcYMGXsEiqk7-Z7f2EnvVR4DmGxLuaGifpAu-kkvs/exec';
 const CLIENT_ID = '911213017810-k7iibsvjmq0hg4j1eflhmhbafh3pqrgd.apps.googleusercontent.com';
 // Raise on every release; shown in the footer next to the server's own VERSION (Code.js).
-const VERSION = '1.0.0';
+const VERSION = '1.1.0';
 
 const $ = s => document.querySelector(s);
 let data = null;
@@ -343,6 +345,7 @@ function setData(d) {
 function renderEvalForm(reset) {
   const form = data.forms.find(f => f.name === $('#eval-form').value);
   $('#eval-body').hidden = !form;
+  $('#eval-patient-field').hidden = !form || !data.patientForms.includes(form.name);
   if (!form || (!reset && $('#eval-criteria').dataset.form === form.name)) return;
   $('#eval-criteria').dataset.form = form.name;
   $('#eval-criteria').innerHTML = form.criteria.map((c, k) => `
@@ -355,6 +358,7 @@ function renderEvalForm(reset) {
       <textarea rows="2" dir="auto" placeholder="מלל חופשי (לא חובה)" aria-label="מלל חופשי: ${esc(c.name)}"></textarea>
     </div>`).join('');
   $('#eval-key').value = '';
+  $('#eval-patient').value = '';
 }
 
 function renderManage() {
@@ -372,7 +376,7 @@ function renderReport(r) {
     ? r.evals.map(e => `
         <li><div>
           <span dir="auto">${esc(e.form)}</span>
-          <small>${esc(niceDate(e.date))}, הוערך ע״י <bdi>${esc(e.by.split('@')[0])}</bdi></small>
+          <small>${esc(niceDate(e.date))}${e.patient ? `, מטופל/ת <bdi>${esc(e.patient)}</bdi>` : ''}, הוערך ע״י <bdi>${esc(e.by.split('@')[0])}</bdi>${e.logged && e.logged !== e.date ? `, נרשם ${esc(niceDate(e.logged))}` : ''}</small>
           ${e.answers.map(a => `<p dir="auto"><b>${esc(a.criterion)}:</b> ${esc(a.rating)}${a.comment ? `. ${esc(a.comment)}` : ''}</p>`).join('')}
           ${e.keyMessage ? `<p dir="auto"><b>${esc(data.keyMessage)}:</b> ${esc(e.keyMessage)}</p>` : ''}
         </div></li>`).join('')
@@ -417,6 +421,7 @@ $('#eval-save').addEventListener('click', async () => {
     internId: $('#eval-intern').value,
     form: $('#eval-form').value,
     date: $('#eval-date').value,
+    patient: $('#eval-patient-field').hidden ? '' : $('#eval-patient').value.trim(),
     keyMessage: $('#eval-key').value.trim(),
     answers: [...document.querySelectorAll('#eval-criteria .crit')].map(el => ({
       criterion: el.dataset.criterion,
@@ -425,6 +430,7 @@ $('#eval-save').addEventListener('click', async () => {
     })),
   };
   if (!entry.internId) return toast('יש לבחור מתמחה.', true);
+  if (!$('#eval-patient-field').hidden && !entry.patient) return toast('יש להזין את ראשי התיבות של המטופל.', true);
   const unrated = entry.answers.find(a => !a.rating);
   if (unrated) return toast(`יש לדרג את "${unrated.criterion}".`, true);
 
@@ -434,7 +440,7 @@ $('#eval-save').addEventListener('click', async () => {
     const r = await call('submitEvaluation', entry);
     if (r.warning) toast(r.warning, true);
     else toast(`נשמרה הערכה: ${entry.form} עבור ${$('#eval-intern').selectedOptions[0].text}`);
-    renderEvalForm(true);   // clear the ratings; keep intern, form and date for the next one
+    renderEvalForm(true);   // clear the ratings and patient; keep intern, form and date for the next one
   } catch (e) { fail(e); }
   finally { btn.disabled = false; btn.textContent = 'שמירת הערכה'; }
 });
@@ -470,7 +476,7 @@ function showVersion(api) {
   $('#version').textContent = `web ${VERSION}` + (api ? ` · api ${api}` : '');
 }
 showVersion();
-$('#eval-date').value = today();
+$('#eval-date').value = $('#eval-date').max = today();
 $('#new-intern-start').value = today();
 
 /** Sign in, then load. An account without access can try another one. */
