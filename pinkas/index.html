@@ -182,7 +182,7 @@
     <button id="signout" class="signout">התנתקות</button>
   </div>
   <nav class="tabs">
-    <button class="tab active" data-tab="eval">הערכה</button>
+    <button class="tab active" data-tab="eval" id="tab-eval">הערכה</button>
     <button class="tab" data-tab="report">התקדמות</button>
     <button class="tab" data-tab="manage" id="tab-manage" hidden>ניהול</button>
   </nav>
@@ -208,7 +208,7 @@
 
   <!-- Per-intern evaluations -->
   <section id="panel-report" class="panel">
-    <div class="card">
+    <div class="card" id="report-picker">
       <label class="field" style="margin:0"><span>מתמחה</span><select id="report-intern" dir="auto"></select></label>
     </div>
     <div id="report-body"></div>
@@ -222,7 +222,7 @@
         <input id="new-intern-name" type="text" dir="auto" placeholder="שם מלא" aria-label="שם מלא">
         <input id="new-intern-start" type="date" aria-label="תאריך התחלה" style="flex:0 0 42%">
       </div>
-      <input id="new-intern-email" class="stack" type="text" dir="ltr" inputmode="email" placeholder="אימייל (לא חובה, לשיתוף הגיליון האישי)" aria-label="אימייל">
+      <input id="new-intern-email" class="stack" type="text" dir="ltr" inputmode="email" placeholder="אימייל (לא חובה, לצפייה בהתקדמות ולשיתוף הגיליון האישי)" aria-label="אימייל">
       <button id="add-intern" class="btn">הוספת מתמחה</button>
       <ul id="intern-list" class="list"></ul>
     </div>
@@ -331,6 +331,15 @@ function setData(d) {
     if (d.interns.some(i => i.id === keep)) sel.value = keep;
   }
 
+  // Interns only see their own report
+  const intern = d.role === 'intern';
+  $('#tab-eval').hidden = intern;
+  if (intern) {
+    showTab('report');
+    if (d.interns.length === 1) $('#report-intern').value = d.interns[0].id;
+  }
+  $('#report-picker').hidden = intern && d.interns.length === 1;
+
   const keepForm = $('#eval-form').value;
   $('#eval-form').innerHTML = '<option value="">בחירת הערכה</option>' +
     d.forms.map(f => `<option value="${esc(f.name)}">${esc(f.name)}</option>`).join('');
@@ -405,9 +414,13 @@ async function loadReport() {
 }
 
 /* ---------- Events ---------- */
+function showTab(tab) {
+  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + tab));
+}
+
 document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => {
-  document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b === btn));
-  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + btn.dataset.tab));
+  showTab(btn.dataset.tab);
   if (btn.dataset.tab === 'report') {
     if (!$('#report-intern').value && $('#eval-intern').value) $('#report-intern').value = $('#eval-intern').value;
     loadReport();
