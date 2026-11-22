@@ -386,7 +386,7 @@ function renderReport(r) {
         <li><div>
           <span dir="auto">${esc(e.form)}</span>
           <small>${esc(niceDate(e.date))}${e.patient ? `, מטופל/ת <bdi>${esc(e.patient)}</bdi>` : ''}, הוערך ע״י <bdi>${esc(e.by.split('@')[0])}</bdi>${e.logged && e.logged !== e.date ? `, נרשם ${esc(niceDate(e.logged))}` : ''}</small>
-          ${e.answers.map(a => `<p dir="auto"><b>${esc(a.criterion)}:</b> ${esc(a.rating)}${a.comment ? `. ${esc(a.comment)}` : ''}</p>`).join('')}
+          ${e.answers.map(a => `<p dir="auto"><b>${esc(a.criterion)}:</b> ${esc(a.rating || '—')}${a.comment ? `. ${esc(a.comment)}` : ''}</p>`).join('')}
           ${e.keyMessage ? `<p dir="auto"><b>${esc(data.keyMessage)}:</b> ${esc(e.keyMessage)}</p>` : ''}
         </div></li>`).join('')
     : '<li class="empty">עדיין אין הערכות. אפשר למלא הערכה בלשונית הערכה.</li>';
@@ -444,8 +444,6 @@ $('#eval-save').addEventListener('click', async () => {
   };
   if (!entry.internId) return toast('יש לבחור מתמחה.', true);
   if (!$('#eval-patient-field').hidden && !entry.patient) return toast('יש להזין את ראשי התיבות של המטופל.', true);
-  const unrated = entry.answers.find(a => !a.rating);
-  if (unrated) return toast(`יש לדרג את "${unrated.criterion}".`, true);
 
   const btn = $('#eval-save');
   btn.disabled = true; btn.textContent = 'שומר…';
